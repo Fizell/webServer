@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated>
+      <config projectName="web_server1_1" targetName="web_server1_1" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ca483f4a-695e-4170-8d64-85524cf93c8d" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="98bdd091-5e71-436e-aedb-103d34defce3" />
+  </component>
+  <component name="ProjectId" id="1We3S9Sq4LWf9gD9tMWCuZa5Ype" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
+  </component>
+  <component name="RunManager">
+    <configuration name="web_server1_1" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="web_server1_1" TARGET_NAME="web_server1_1" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="web_server1_1" RUN_TARGET_NAME="web_server1_1">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ca483f4a-695e-4170-8d64-85524cf93c8d" name="Default Changelist" comment="" />
+      <created>1579496229528</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1579496229528</updated>
+      <workItem from="1579496232023" duration="12086000" />
+      <workItem from="1579512777313" duration="293000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="210" y="59" key="#Notifications" timestamp="1579512186200">
+      <screen x="61" y="24" width="1219" height="776" />
+    </state>
+    <state x="210" y="59" key="#Notifications/61.24.1219.776@61.24.1219.776" timestamp="1579512186200" />
+    <state width="458" height="466" key="DebuggerActiveHint" timestamp="1579510400915">
+      <screen x="61" y="24" width="1219" height="776" />
+    </state>
+    <state width="458" height="466" key="DebuggerActiveHint/61.24.1219.776@61.24.1219.776" timestamp="1579510400915" />
+    <state x="461" y="349" key="Github.CreateGistDialog" timestamp="1579512784435">
+      <screen x="61" y="24" width="1219" height="776" />
+    </state>
+    <state x="461" y="349" key="Github.CreateGistDialog/61.24.1219.776@61.24.1219.776" timestamp="1579512784435" />
+    <state width="526" height="204" key="GridCell.Tab.0.bottom" timestamp="1579511412633">
+      <screen x="61" y="24" width="1219" height="776" />
+    </state>
+    <state width="526" height="204" key="GridCell.Tab.0.bottom/61.24.1219.776@61.24.1219.776" timestamp="1579511412633" />
+    <state width="526" height="204" key="GridCell.Tab.0.center" timestamp="1579511412632">
+      <screen x="61" y="24" width="1219" height="776" />
+    </state>
+    <state width="526" height="204" key="GridCell.Tab.0.center/61.24.1219.776@61.24.1219.776" timestamp="1579511412632" />
+    <state width="526" height="204" key="GridCell.Tab.0.left" timestamp="1579511412632">
+      <screen x="61" y="24" width="1219" height="776" />
+    </state>
+    <state width="526" height="204" key="GridCell.Tab.0.left/61.24.1219.776@61.24.1219.776" timestamp="1579511412632" />
+    <state width="526" height="204" key="GridCell.Tab.0.right" timestamp="1579511412633">
+      <screen x="61" y="24" width="1219" height="776" />
+    </state>
+    <state width="526" height="204" key="GridCell.Tab.0.right/61.24.1219.776@61.24.1219.776" timestamp="1579511412633" />
+    <state width="1053" height="220" key="GridCell.Tab.1.bottom" timestamp="1579510417266">
+      <screen x="61" y="24" width="1219" height="776" />
+    </state>
+    <state width="1053" height="220" key="GridCell.Tab.1.bottom/61.24.1219.776@61.24.1219.776" timestamp="1579510417266" />
+    <state width="1053" height="220" key="GridCell.Tab.1.center" timestamp="1579510417266">
+      <screen x="61" y="24" width="1219" height="776" />
+    </state>
+    <state width="1053" height="220" key="GridCell.Tab.1.center/61.24.1219.776@61.24.1219.776" timestamp="1579510417266" />
+    <state width="1053" height="220" key="GridCell.Tab.1.left" timestamp="1579510417265">
+      <screen x="61" y="24" width="1219" height="776" />
+    </state>
+    <state width="1053" height="220" key="GridCell.Tab.1.left/61.24.1219.776@61.24.1219.776" timestamp="1579510417265" />
+    <state width="1053" height="220" key="GridCell.Tab.1.right" timestamp="1579510417266">
+      <screen x="61" y="24" width="1219" height="776" />
+    </state>
+    <state width="1053" height="220" key="GridCell.Tab.1.right/61.24.1219.776@61.24.1219.776" timestamp="1579510417266" />
+    <state x="176" y="33" key="SettingsEditor" timestamp="1579512245491">
+      <screen x="61" y="24" width="1219" height="776" />
+    </state>
+    <state x="176" y="33" key="SettingsEditor/61.24.1219.776@61.24.1219.776" timestamp="1579512245491" />
+    <state x="439" y="121" width="672" height="678" key="search.everywhere.popup" timestamp="1579500917150">
+      <screen x="61" y="24" width="1219" height="776" />
+    </state>
+    <state x="439" y="121" width="672" height="678" key="search.everywhere.popup/61.24.1219.776@61.24.1219.776" timestamp="1579500917150" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/Server.cpp</url>
+          <line>134</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/Server.cpp</url>
+          <line>127</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

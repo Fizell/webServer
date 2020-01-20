@@ -1,0 +1,3 @@
+/home/parallels/CLionProjects/web_server1.1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/parallels/CLionProjects/web_server1.1/cmake-build-debug/CMakeFiles/web_server1_1.dir
+/home/parallels/CLionProjects/web_server1.1/cmake-build-debug/CMakeFiles/edit_cache.dir

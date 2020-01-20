@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/web_server1_1.dir/main.cpp.o CMakeFiles/web_server1_1.dir/Server.cpp.o CMakeFiles/web_server1_1.dir/UtilFun.cpp.o CMakeFiles/web_server1_1.dir/Epoll.cpp.o CMakeFiles/web_server1_1.dir/Task.cpp.o  -o web_server1_1 
