@@ -90,6 +90,18 @@
 		<Unit filename="/home/parallels/CLionProjects/web_server1.1/Epoll.h">
 			<Option target="web_server1_1"/>
 		</Unit>
+		<Unit filename="/home/parallels/CLionProjects/web_server1.1/EventLoop.cpp">
+			<Option target="web_server1_1"/>
+		</Unit>
+		<Unit filename="/home/parallels/CLionProjects/web_server1.1/EventLoop.h">
+			<Option target="web_server1_1"/>
+		</Unit>
+		<Unit filename="/home/parallels/CLionProjects/web_server1.1/EventLoopThread.cpp">
+			<Option target="web_server1_1"/>
+		</Unit>
+		<Unit filename="/home/parallels/CLionProjects/web_server1.1/EventLoopThread.h">
+			<Option target="web_server1_1"/>
+		</Unit>
 		<Unit filename="/home/parallels/CLionProjects/web_server1.1/Server.cpp">
 			<Option target="web_server1_1"/>
 		</Unit>
@@ -100,6 +112,18 @@
 			<Option target="web_server1_1"/>
 		</Unit>
 		<Unit filename="/home/parallels/CLionProjects/web_server1.1/Task.h">
+			<Option target="web_server1_1"/>
+		</Unit>
+		<Unit filename="/home/parallels/CLionProjects/web_server1.1/Thread.cpp">
+			<Option target="web_server1_1"/>
+		</Unit>
+		<Unit filename="/home/parallels/CLionProjects/web_server1.1/Thread.h">
+			<Option target="web_server1_1"/>
+		</Unit>
+		<Unit filename="/home/parallels/CLionProjects/web_server1.1/ThreadPool.cpp">
+			<Option target="web_server1_1"/>
+		</Unit>
+		<Unit filename="/home/parallels/CLionProjects/web_server1.1/ThreadPool.h">
 			<Option target="web_server1_1"/>
 		</Unit>
 		<Unit filename="/home/parallels/CLionProjects/web_server1.1/UtilFun.cpp">

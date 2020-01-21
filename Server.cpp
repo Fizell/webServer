@@ -8,7 +8,7 @@
 #include "WebLimit.h"
 #include <functional>
 
-Server::Server(int port) : task_(new Task(startListen(port))) {}
+Server::Server(EventLoop* loop, int port) : loop_(loop), task_(new Task(loop_, startListen(port))) {}
 Server::~Server() {}
 
 void Server::start() {

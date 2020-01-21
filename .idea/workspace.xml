@@ -11,7 +11,46 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ca483f4a-695e-4170-8d64-85524cf93c8d" name="Default Changelist" comment="" />
+    <list default="true" id="ca483f4a-695e-4170-8d64-85524cf93c8d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EventLoop.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EventLoop.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EventLoopThread.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EventLoopThread.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Thread.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Thread.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ThreadPool.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ThreadPool.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Server.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server.h" beforeDir="false" afterPath="$PROJECT_DIR$/Server.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Task.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task.h" beforeDir="false" afterPath="$PROJECT_DIR$/Task.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UtilFun.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/UtilFun.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UtilFun.h" beforeDir="false" afterPath="$PROJECT_DIR$/UtilFun.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebLimit.h" beforeDir="false" afterPath="$PROJECT_DIR$/WebLimit.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/Epoll.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/Epoll.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/Server.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/Server.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/Task.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/Task.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/UtilFun.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/UtilFun.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/main.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/progress.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/web_server1_1" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/web_server1_1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/web_server1_1.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/web_server1_1.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,10 +60,14 @@
     <option name="formatViaClangd" value="false" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="GithubDefaultAccount">
     <option name="defaultAccountId" value="98bdd091-5e71-436e-aedb-103d34defce3" />
   </component>
   <component name="ProjectId" id="1We3S9Sq4LWf9gD9tMWCuZa5Ype" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -33,6 +76,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="settings.github" />
@@ -67,7 +111,7 @@
       <option name="presentableId" value="Default" />
       <updated>1579496229528</updated>
       <workItem from="1579496232023" duration="12086000" />
-      <workItem from="1579512777313" duration="293000" />
+      <workItem from="1579512777313" duration="14136000" />
     </task>
     <servers />
   </component>
@@ -83,26 +127,26 @@
       <screen x="61" y="24" width="1219" height="776" />
     </state>
     <state width="458" height="466" key="DebuggerActiveHint/61.24.1219.776@61.24.1219.776" timestamp="1579510400915" />
-    <state x="461" y="349" key="Github.CreateGistDialog" timestamp="1579512784435">
+    <state x="461" y="349" key="Github.CreateGistDialog" timestamp="1579513468778">
       <screen x="61" y="24" width="1219" height="776" />
     </state>
-    <state x="461" y="349" key="Github.CreateGistDialog/61.24.1219.776@61.24.1219.776" timestamp="1579512784435" />
-    <state width="526" height="204" key="GridCell.Tab.0.bottom" timestamp="1579511412633">
+    <state x="461" y="349" key="Github.CreateGistDialog/61.24.1219.776@61.24.1219.776" timestamp="1579513468778" />
+    <state width="585" height="204" key="GridCell.Tab.0.bottom" timestamp="1579513479520">
       <screen x="61" y="24" width="1219" height="776" />
     </state>
-    <state width="526" height="204" key="GridCell.Tab.0.bottom/61.24.1219.776@61.24.1219.776" timestamp="1579511412633" />
-    <state width="526" height="204" key="GridCell.Tab.0.center" timestamp="1579511412632">
+    <state width="585" height="204" key="GridCell.Tab.0.bottom/61.24.1219.776@61.24.1219.776" timestamp="1579513479520" />
+    <state width="585" height="204" key="GridCell.Tab.0.center" timestamp="1579513479512">
       <screen x="61" y="24" width="1219" height="776" />
     </state>
-    <state width="526" height="204" key="GridCell.Tab.0.center/61.24.1219.776@61.24.1219.776" timestamp="1579511412632" />
-    <state width="526" height="204" key="GridCell.Tab.0.left" timestamp="1579511412632">
+    <state width="585" height="204" key="GridCell.Tab.0.center/61.24.1219.776@61.24.1219.776" timestamp="1579513479512" />
+    <state width="585" height="204" key="GridCell.Tab.0.left" timestamp="1579513479509">
       <screen x="61" y="24" width="1219" height="776" />
     </state>
-    <state width="526" height="204" key="GridCell.Tab.0.left/61.24.1219.776@61.24.1219.776" timestamp="1579511412632" />
-    <state width="526" height="204" key="GridCell.Tab.0.right" timestamp="1579511412633">
+    <state width="585" height="204" key="GridCell.Tab.0.left/61.24.1219.776@61.24.1219.776" timestamp="1579513479509" />
+    <state width="585" height="204" key="GridCell.Tab.0.right" timestamp="1579513479516">
       <screen x="61" y="24" width="1219" height="776" />
     </state>
-    <state width="526" height="204" key="GridCell.Tab.0.right/61.24.1219.776@61.24.1219.776" timestamp="1579511412633" />
+    <state width="585" height="204" key="GridCell.Tab.0.right/61.24.1219.776@61.24.1219.776" timestamp="1579513479516" />
     <state width="1053" height="220" key="GridCell.Tab.1.bottom" timestamp="1579510417266">
       <screen x="61" y="24" width="1219" height="776" />
     </state>
@@ -123,10 +167,10 @@
       <screen x="61" y="24" width="1219" height="776" />
     </state>
     <state x="176" y="33" key="SettingsEditor/61.24.1219.776@61.24.1219.776" timestamp="1579512245491" />
-    <state x="439" y="121" width="672" height="678" key="search.everywhere.popup" timestamp="1579500917150">
+    <state x="439" y="121" width="672" height="678" key="search.everywhere.popup" timestamp="1579585174213">
       <screen x="61" y="24" width="1219" height="776" />
     </state>
-    <state x="439" y="121" width="672" height="678" key="search.everywhere.popup/61.24.1219.776@61.24.1219.776" timestamp="1579500917150" />
+    <state x="439" y="121" width="672" height="678" key="search.everywhere.popup/61.24.1219.776@61.24.1219.776" timestamp="1579585174213" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -9,11 +9,13 @@
 #include <stdint.h>
 #include "Epoll.h"
 #include <functional>
+#include "EventLoop.h"
 
+class EventLoop;
 class Epoll;
 class Task {
 public:
-    Task(int fd);
+    Task(EventLoop *loop, int fd);
     ~Task();
     typedef std::function<void()> func;
 
@@ -34,7 +36,7 @@ public:
     void setWriteHandle(func &&func_) {writeHandle_ = func_;}
     void eventHandle();
 private:
-
+    EventLoop *loop_;
 
 };
 

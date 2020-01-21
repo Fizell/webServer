@@ -122,13 +122,69 @@ CMakeFiles/web_server1_1.dir/Task.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/web_server1_1.dir/Task.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/parallels/CLionProjects/web_server1.1/Task.cpp -o CMakeFiles/web_server1_1.dir/Task.cpp.s
 
+CMakeFiles/web_server1_1.dir/Thread.cpp.o: CMakeFiles/web_server1_1.dir/flags.make
+CMakeFiles/web_server1_1.dir/Thread.cpp.o: ../Thread.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/parallels/CLionProjects/web_server1.1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/web_server1_1.dir/Thread.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/web_server1_1.dir/Thread.cpp.o -c /home/parallels/CLionProjects/web_server1.1/Thread.cpp
+
+CMakeFiles/web_server1_1.dir/Thread.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/web_server1_1.dir/Thread.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/parallels/CLionProjects/web_server1.1/Thread.cpp > CMakeFiles/web_server1_1.dir/Thread.cpp.i
+
+CMakeFiles/web_server1_1.dir/Thread.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/web_server1_1.dir/Thread.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/parallels/CLionProjects/web_server1.1/Thread.cpp -o CMakeFiles/web_server1_1.dir/Thread.cpp.s
+
+CMakeFiles/web_server1_1.dir/ThreadPool.cpp.o: CMakeFiles/web_server1_1.dir/flags.make
+CMakeFiles/web_server1_1.dir/ThreadPool.cpp.o: ../ThreadPool.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/parallels/CLionProjects/web_server1.1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/web_server1_1.dir/ThreadPool.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/web_server1_1.dir/ThreadPool.cpp.o -c /home/parallels/CLionProjects/web_server1.1/ThreadPool.cpp
+
+CMakeFiles/web_server1_1.dir/ThreadPool.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/web_server1_1.dir/ThreadPool.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/parallels/CLionProjects/web_server1.1/ThreadPool.cpp > CMakeFiles/web_server1_1.dir/ThreadPool.cpp.i
+
+CMakeFiles/web_server1_1.dir/ThreadPool.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/web_server1_1.dir/ThreadPool.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/parallels/CLionProjects/web_server1.1/ThreadPool.cpp -o CMakeFiles/web_server1_1.dir/ThreadPool.cpp.s
+
+CMakeFiles/web_server1_1.dir/EventLoop.cpp.o: CMakeFiles/web_server1_1.dir/flags.make
+CMakeFiles/web_server1_1.dir/EventLoop.cpp.o: ../EventLoop.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/parallels/CLionProjects/web_server1.1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/web_server1_1.dir/EventLoop.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/web_server1_1.dir/EventLoop.cpp.o -c /home/parallels/CLionProjects/web_server1.1/EventLoop.cpp
+
+CMakeFiles/web_server1_1.dir/EventLoop.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/web_server1_1.dir/EventLoop.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/parallels/CLionProjects/web_server1.1/EventLoop.cpp > CMakeFiles/web_server1_1.dir/EventLoop.cpp.i
+
+CMakeFiles/web_server1_1.dir/EventLoop.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/web_server1_1.dir/EventLoop.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/parallels/CLionProjects/web_server1.1/EventLoop.cpp -o CMakeFiles/web_server1_1.dir/EventLoop.cpp.s
+
+CMakeFiles/web_server1_1.dir/EventLoopThread.cpp.o: CMakeFiles/web_server1_1.dir/flags.make
+CMakeFiles/web_server1_1.dir/EventLoopThread.cpp.o: ../EventLoopThread.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/parallels/CLionProjects/web_server1.1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/web_server1_1.dir/EventLoopThread.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/web_server1_1.dir/EventLoopThread.cpp.o -c /home/parallels/CLionProjects/web_server1.1/EventLoopThread.cpp
+
+CMakeFiles/web_server1_1.dir/EventLoopThread.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/web_server1_1.dir/EventLoopThread.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/parallels/CLionProjects/web_server1.1/EventLoopThread.cpp > CMakeFiles/web_server1_1.dir/EventLoopThread.cpp.i
+
+CMakeFiles/web_server1_1.dir/EventLoopThread.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/web_server1_1.dir/EventLoopThread.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/parallels/CLionProjects/web_server1.1/EventLoopThread.cpp -o CMakeFiles/web_server1_1.dir/EventLoopThread.cpp.s
+
 # Object files for target web_server1_1
 web_server1_1_OBJECTS = \
 "CMakeFiles/web_server1_1.dir/main.cpp.o" \
 "CMakeFiles/web_server1_1.dir/Server.cpp.o" \
 "CMakeFiles/web_server1_1.dir/UtilFun.cpp.o" \
 "CMakeFiles/web_server1_1.dir/Epoll.cpp.o" \
-"CMakeFiles/web_server1_1.dir/Task.cpp.o"
+"CMakeFiles/web_server1_1.dir/Task.cpp.o" \
+"CMakeFiles/web_server1_1.dir/Thread.cpp.o" \
+"CMakeFiles/web_server1_1.dir/ThreadPool.cpp.o" \
+"CMakeFiles/web_server1_1.dir/EventLoop.cpp.o" \
+"CMakeFiles/web_server1_1.dir/EventLoopThread.cpp.o"
 
 # External object files for target web_server1_1
 web_server1_1_EXTERNAL_OBJECTS =
@@ -138,9 +194,13 @@ web_server1_1: CMakeFiles/web_server1_1.dir/Server.cpp.o
 web_server1_1: CMakeFiles/web_server1_1.dir/UtilFun.cpp.o
 web_server1_1: CMakeFiles/web_server1_1.dir/Epoll.cpp.o
 web_server1_1: CMakeFiles/web_server1_1.dir/Task.cpp.o
+web_server1_1: CMakeFiles/web_server1_1.dir/Thread.cpp.o
+web_server1_1: CMakeFiles/web_server1_1.dir/ThreadPool.cpp.o
+web_server1_1: CMakeFiles/web_server1_1.dir/EventLoop.cpp.o
+web_server1_1: CMakeFiles/web_server1_1.dir/EventLoopThread.cpp.o
 web_server1_1: CMakeFiles/web_server1_1.dir/build.make
 web_server1_1: CMakeFiles/web_server1_1.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/parallels/CLionProjects/web_server1.1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable web_server1_1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/parallels/CLionProjects/web_server1.1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable web_server1_1"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/web_server1_1.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -18,9 +18,25 @@ sys/epoll.h
 WebLimit.h
 /home/parallels/CLionProjects/web_server1.1/WebLimit.h
 
-/home/parallels/CLionProjects/web_server1.1/Server.h
+/home/parallels/CLionProjects/web_server1.1/EventLoop.cpp
+EventLoop.h
+/home/parallels/CLionProjects/web_server1.1/EventLoop.h
+UtilFun.h
+/home/parallels/CLionProjects/web_server1.1/UtilFun.h
+sys/eventfd.h
+-
+UtilFun.h
+/home/parallels/CLionProjects/web_server1.1/UtilFun.h
+
+/home/parallels/CLionProjects/web_server1.1/EventLoop.h
+memory
+-
+vector
+-
 Task.h
 /home/parallels/CLionProjects/web_server1.1/Task.h
+Epoll.h
+/home/parallels/CLionProjects/web_server1.1/Epoll.h
 
 /home/parallels/CLionProjects/web_server1.1/Task.h
 stdint.h
@@ -29,12 +45,20 @@ Epoll.h
 /home/parallels/CLionProjects/web_server1.1/Epoll.h
 functional
 -
+EventLoop.h
+/home/parallels/CLionProjects/web_server1.1/EventLoop.h
 
+/home/parallels/CLionProjects/web_server1.1/UtilFun.h
+errno.h
+-
+string
+-
+sys/socket.h
+-
+unistd.h
+-
+WebLimit.h
 /home/parallels/CLionProjects/web_server1.1/WebLimit.h
 
-/home/parallels/CLionProjects/web_server1.1/main.cpp
-iostream
--
-Server.h
-/home/parallels/CLionProjects/web_server1.1/Server.h
+/home/parallels/CLionProjects/web_server1.1/WebLimit.h
 

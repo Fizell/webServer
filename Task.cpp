@@ -4,7 +4,8 @@
 
 #include "Task.h"
 
-Task::Task(int fd) : epoll_(new Epoll), fd_(fd) {}
+
+Task::Task(EventLoop *loop, int fd) : loop_(loop), epoll_(new Epoll), fd_(fd) {}
 
 Task::~Task() {}
 

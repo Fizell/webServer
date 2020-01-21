@@ -6,11 +6,12 @@
 #define WEB_SERVER1_1_SERVER_H
 
 #include "Task.h"
+#include "EventLoop.h"
 
 class Task;
 class Server {
 public:
-    Server(int port);
+    Server(EventLoop* loop, int port);
     ~Server();
     int startListen(int port);
     void start();
@@ -18,6 +19,7 @@ public:
     void readHandle();
     void writeHandle();
 private:
+    EventLoop *loop_;
     std::shared_ptr<Task> task_;
     char ipbuf_tmp_[50];
     int n;

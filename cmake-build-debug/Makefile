@@ -150,6 +150,60 @@ Epoll.cpp.s:
 	$(MAKE) -f CMakeFiles/web_server1_1.dir/build.make CMakeFiles/web_server1_1.dir/Epoll.cpp.s
 .PHONY : Epoll.cpp.s
 
+EventLoop.o: EventLoop.cpp.o
+
+.PHONY : EventLoop.o
+
+# target to build an object file
+EventLoop.cpp.o:
+	$(MAKE) -f CMakeFiles/web_server1_1.dir/build.make CMakeFiles/web_server1_1.dir/EventLoop.cpp.o
+.PHONY : EventLoop.cpp.o
+
+EventLoop.i: EventLoop.cpp.i
+
+.PHONY : EventLoop.i
+
+# target to preprocess a source file
+EventLoop.cpp.i:
+	$(MAKE) -f CMakeFiles/web_server1_1.dir/build.make CMakeFiles/web_server1_1.dir/EventLoop.cpp.i
+.PHONY : EventLoop.cpp.i
+
+EventLoop.s: EventLoop.cpp.s
+
+.PHONY : EventLoop.s
+
+# target to generate assembly for a file
+EventLoop.cpp.s:
+	$(MAKE) -f CMakeFiles/web_server1_1.dir/build.make CMakeFiles/web_server1_1.dir/EventLoop.cpp.s
+.PHONY : EventLoop.cpp.s
+
+EventLoopThread.o: EventLoopThread.cpp.o
+
+.PHONY : EventLoopThread.o
+
+# target to build an object file
+EventLoopThread.cpp.o:
+	$(MAKE) -f CMakeFiles/web_server1_1.dir/build.make CMakeFiles/web_server1_1.dir/EventLoopThread.cpp.o
+.PHONY : EventLoopThread.cpp.o
+
+EventLoopThread.i: EventLoopThread.cpp.i
+
+.PHONY : EventLoopThread.i
+
+# target to preprocess a source file
+EventLoopThread.cpp.i:
+	$(MAKE) -f CMakeFiles/web_server1_1.dir/build.make CMakeFiles/web_server1_1.dir/EventLoopThread.cpp.i
+.PHONY : EventLoopThread.cpp.i
+
+EventLoopThread.s: EventLoopThread.cpp.s
+
+.PHONY : EventLoopThread.s
+
+# target to generate assembly for a file
+EventLoopThread.cpp.s:
+	$(MAKE) -f CMakeFiles/web_server1_1.dir/build.make CMakeFiles/web_server1_1.dir/EventLoopThread.cpp.s
+.PHONY : EventLoopThread.cpp.s
+
 Server.o: Server.cpp.o
 
 .PHONY : Server.o
@@ -203,6 +257,60 @@ Task.s: Task.cpp.s
 Task.cpp.s:
 	$(MAKE) -f CMakeFiles/web_server1_1.dir/build.make CMakeFiles/web_server1_1.dir/Task.cpp.s
 .PHONY : Task.cpp.s
+
+Thread.o: Thread.cpp.o
+
+.PHONY : Thread.o
+
+# target to build an object file
+Thread.cpp.o:
+	$(MAKE) -f CMakeFiles/web_server1_1.dir/build.make CMakeFiles/web_server1_1.dir/Thread.cpp.o
+.PHONY : Thread.cpp.o
+
+Thread.i: Thread.cpp.i
+
+.PHONY : Thread.i
+
+# target to preprocess a source file
+Thread.cpp.i:
+	$(MAKE) -f CMakeFiles/web_server1_1.dir/build.make CMakeFiles/web_server1_1.dir/Thread.cpp.i
+.PHONY : Thread.cpp.i
+
+Thread.s: Thread.cpp.s
+
+.PHONY : Thread.s
+
+# target to generate assembly for a file
+Thread.cpp.s:
+	$(MAKE) -f CMakeFiles/web_server1_1.dir/build.make CMakeFiles/web_server1_1.dir/Thread.cpp.s
+.PHONY : Thread.cpp.s
+
+ThreadPool.o: ThreadPool.cpp.o
+
+.PHONY : ThreadPool.o
+
+# target to build an object file
+ThreadPool.cpp.o:
+	$(MAKE) -f CMakeFiles/web_server1_1.dir/build.make CMakeFiles/web_server1_1.dir/ThreadPool.cpp.o
+.PHONY : ThreadPool.cpp.o
+
+ThreadPool.i: ThreadPool.cpp.i
+
+.PHONY : ThreadPool.i
+
+# target to preprocess a source file
+ThreadPool.cpp.i:
+	$(MAKE) -f CMakeFiles/web_server1_1.dir/build.make CMakeFiles/web_server1_1.dir/ThreadPool.cpp.i
+.PHONY : ThreadPool.cpp.i
+
+ThreadPool.s: ThreadPool.cpp.s
+
+.PHONY : ThreadPool.s
+
+# target to generate assembly for a file
+ThreadPool.cpp.s:
+	$(MAKE) -f CMakeFiles/web_server1_1.dir/build.make CMakeFiles/web_server1_1.dir/ThreadPool.cpp.s
+.PHONY : ThreadPool.cpp.s
 
 UtilFun.o: UtilFun.cpp.o
 
@@ -270,12 +378,24 @@ help:
 	@echo "... Epoll.o"
 	@echo "... Epoll.i"
 	@echo "... Epoll.s"
+	@echo "... EventLoop.o"
+	@echo "... EventLoop.i"
+	@echo "... EventLoop.s"
+	@echo "... EventLoopThread.o"
+	@echo "... EventLoopThread.i"
+	@echo "... EventLoopThread.s"
 	@echo "... Server.o"
 	@echo "... Server.i"
 	@echo "... Server.s"
 	@echo "... Task.o"
 	@echo "... Task.i"
 	@echo "... Task.s"
+	@echo "... Thread.o"
+	@echo "... Thread.i"
+	@echo "... Thread.s"
+	@echo "... ThreadPool.o"
+	@echo "... ThreadPool.i"
+	@echo "... ThreadPool.s"
 	@echo "... UtilFun.o"
 	@echo "... UtilFun.i"
 	@echo "... UtilFun.s"

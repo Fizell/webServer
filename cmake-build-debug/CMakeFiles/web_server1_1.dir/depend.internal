@@ -4,11 +4,28 @@
 CMakeFiles/web_server1_1.dir/Epoll.cpp.o
  /home/parallels/CLionProjects/web_server1.1/Epoll.cpp
  /home/parallels/CLionProjects/web_server1.1/Epoll.h
+ /home/parallels/CLionProjects/web_server1.1/EventLoop.h
  /home/parallels/CLionProjects/web_server1.1/Task.h
  /home/parallels/CLionProjects/web_server1.1/UtilFun.h
  /home/parallels/CLionProjects/web_server1.1/WebLimit.h
+CMakeFiles/web_server1_1.dir/EventLoop.cpp.o
+ /home/parallels/CLionProjects/web_server1.1/Epoll.h
+ /home/parallels/CLionProjects/web_server1.1/EventLoop.cpp
+ /home/parallels/CLionProjects/web_server1.1/EventLoop.h
+ /home/parallels/CLionProjects/web_server1.1/Task.h
+ /home/parallels/CLionProjects/web_server1.1/UtilFun.h
+ /home/parallels/CLionProjects/web_server1.1/WebLimit.h
+CMakeFiles/web_server1_1.dir/EventLoopThread.cpp.o
+ /home/parallels/CLionProjects/web_server1.1/Epoll.h
+ /home/parallels/CLionProjects/web_server1.1/EventLoop.h
+ /home/parallels/CLionProjects/web_server1.1/EventLoopThread.cpp
+ /home/parallels/CLionProjects/web_server1.1/EventLoopThread.h
+ /home/parallels/CLionProjects/web_server1.1/Task.h
+ /home/parallels/CLionProjects/web_server1.1/Thread.h
+ /home/parallels/CLionProjects/web_server1.1/WebLimit.h
 CMakeFiles/web_server1_1.dir/Server.cpp.o
  /home/parallels/CLionProjects/web_server1.1/Epoll.h
+ /home/parallels/CLionProjects/web_server1.1/EventLoop.h
  /home/parallels/CLionProjects/web_server1.1/Server.cpp
  /home/parallels/CLionProjects/web_server1.1/Server.h
  /home/parallels/CLionProjects/web_server1.1/Task.h
@@ -16,14 +33,29 @@ CMakeFiles/web_server1_1.dir/Server.cpp.o
  /home/parallels/CLionProjects/web_server1.1/WebLimit.h
 CMakeFiles/web_server1_1.dir/Task.cpp.o
  /home/parallels/CLionProjects/web_server1.1/Epoll.h
+ /home/parallels/CLionProjects/web_server1.1/EventLoop.h
  /home/parallels/CLionProjects/web_server1.1/Task.cpp
  /home/parallels/CLionProjects/web_server1.1/Task.h
+ /home/parallels/CLionProjects/web_server1.1/WebLimit.h
+CMakeFiles/web_server1_1.dir/Thread.cpp.o
+ /home/parallels/CLionProjects/web_server1.1/Thread.cpp
+ /home/parallels/CLionProjects/web_server1.1/Thread.h
+CMakeFiles/web_server1_1.dir/ThreadPool.cpp.o
+ /home/parallels/CLionProjects/web_server1.1/Epoll.h
+ /home/parallels/CLionProjects/web_server1.1/EventLoop.h
+ /home/parallels/CLionProjects/web_server1.1/EventLoopThread.h
+ /home/parallels/CLionProjects/web_server1.1/Task.h
+ /home/parallels/CLionProjects/web_server1.1/Thread.h
+ /home/parallels/CLionProjects/web_server1.1/ThreadPool.cpp
+ /home/parallels/CLionProjects/web_server1.1/ThreadPool.h
  /home/parallels/CLionProjects/web_server1.1/WebLimit.h
 CMakeFiles/web_server1_1.dir/UtilFun.cpp.o
  /home/parallels/CLionProjects/web_server1.1/UtilFun.cpp
  /home/parallels/CLionProjects/web_server1.1/UtilFun.h
+ /home/parallels/CLionProjects/web_server1.1/WebLimit.h
 CMakeFiles/web_server1_1.dir/main.cpp.o
  /home/parallels/CLionProjects/web_server1.1/Epoll.h
+ /home/parallels/CLionProjects/web_server1.1/EventLoop.h
  /home/parallels/CLionProjects/web_server1.1/Server.h
  /home/parallels/CLionProjects/web_server1.1/Task.h
  /home/parallels/CLionProjects/web_server1.1/WebLimit.h
