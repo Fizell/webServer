@@ -23,6 +23,8 @@ public:
     int event_fd_;
     Task *wait_Task_;
     Epoll *epoll_;
+    bool looping_;
+    bool quit_;
 private:
 
 

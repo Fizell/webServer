@@ -7,6 +7,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/parallels/CLionProjects/web_server1.1/Epoll.cpp" "/home/parallels/CLionProjects/web_server1.1/cmake-build-debug/CMakeFiles/web_server1_1.dir/Epoll.cpp.o"
   "/home/parallels/CLionProjects/web_server1.1/EventLoop.cpp" "/home/parallels/CLionProjects/web_server1.1/cmake-build-debug/CMakeFiles/web_server1_1.dir/EventLoop.cpp.o"
   "/home/parallels/CLionProjects/web_server1.1/EventLoopThread.cpp" "/home/parallels/CLionProjects/web_server1.1/cmake-build-debug/CMakeFiles/web_server1_1.dir/EventLoopThread.cpp.o"
+  "/home/parallels/CLionProjects/web_server1.1/HttpData.cpp" "/home/parallels/CLionProjects/web_server1.1/cmake-build-debug/CMakeFiles/web_server1_1.dir/HttpData.cpp.o"
   "/home/parallels/CLionProjects/web_server1.1/Server.cpp" "/home/parallels/CLionProjects/web_server1.1/cmake-build-debug/CMakeFiles/web_server1_1.dir/Server.cpp.o"
   "/home/parallels/CLionProjects/web_server1.1/Task.cpp" "/home/parallels/CLionProjects/web_server1.1/cmake-build-debug/CMakeFiles/web_server1_1.dir/Task.cpp.o"
   "/home/parallels/CLionProjects/web_server1.1/Thread.cpp" "/home/parallels/CLionProjects/web_server1.1/cmake-build-debug/CMakeFiles/web_server1_1.dir/Thread.cpp.o"

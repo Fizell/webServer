@@ -204,6 +204,33 @@ EventLoopThread.cpp.s:
 	$(MAKE) -f CMakeFiles/web_server1_1.dir/build.make CMakeFiles/web_server1_1.dir/EventLoopThread.cpp.s
 .PHONY : EventLoopThread.cpp.s
 
+HttpData.o: HttpData.cpp.o
+
+.PHONY : HttpData.o
+
+# target to build an object file
+HttpData.cpp.o:
+	$(MAKE) -f CMakeFiles/web_server1_1.dir/build.make CMakeFiles/web_server1_1.dir/HttpData.cpp.o
+.PHONY : HttpData.cpp.o
+
+HttpData.i: HttpData.cpp.i
+
+.PHONY : HttpData.i
+
+# target to preprocess a source file
+HttpData.cpp.i:
+	$(MAKE) -f CMakeFiles/web_server1_1.dir/build.make CMakeFiles/web_server1_1.dir/HttpData.cpp.i
+.PHONY : HttpData.cpp.i
+
+HttpData.s: HttpData.cpp.s
+
+.PHONY : HttpData.s
+
+# target to generate assembly for a file
+HttpData.cpp.s:
+	$(MAKE) -f CMakeFiles/web_server1_1.dir/build.make CMakeFiles/web_server1_1.dir/HttpData.cpp.s
+.PHONY : HttpData.cpp.s
+
 Server.o: Server.cpp.o
 
 .PHONY : Server.o
@@ -384,6 +411,9 @@ help:
 	@echo "... EventLoopThread.o"
 	@echo "... EventLoopThread.i"
 	@echo "... EventLoopThread.s"
+	@echo "... HttpData.o"
+	@echo "... HttpData.i"
+	@echo "... HttpData.s"
 	@echo "... Server.o"
 	@echo "... Server.i"
 	@echo "... Server.s"

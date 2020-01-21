@@ -2,6 +2,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/web_server1_1.dir/Epoll.cpp.o"
   "CMakeFiles/web_server1_1.dir/EventLoop.cpp.o"
   "CMakeFiles/web_server1_1.dir/EventLoopThread.cpp.o"
+  "CMakeFiles/web_server1_1.dir/HttpData.cpp.o"
   "CMakeFiles/web_server1_1.dir/Server.cpp.o"
   "CMakeFiles/web_server1_1.dir/Task.cpp.o"
   "CMakeFiles/web_server1_1.dir/Thread.cpp.o"

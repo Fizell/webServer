@@ -6,21 +6,23 @@
 #include "EventLoopThread.h"
 
 EventLoopThread::EventLoopThread() :
-    thread_(std::bind(&EventLoopThread::run, this), "EventLoopThread"), loop_(NULL)
+    loop_(NULL),
+    thread_(std::bind(&EventLoopThread::run, this), "EventLoopThread")
 {}
 
 
 EventLoopThread::~EventLoopThread() {}
 
 void EventLoopThread::run() {
+    while(loop_ == NULL);
     loop_->loop();
 }
 
 EventLoop *EventLoopThread::startLoop() {
-    EventLoop loop;
+    EventLoop *loop = new EventLoop();
     thread_.start();
-    loop_ = &loop;
+    loop_ = loop;
     loop_->wait_Task_->epoll_->addEpoll(loop_->wait_Task_);
-    sleep(2);
+    sleep(1);
     return loop_;
 }

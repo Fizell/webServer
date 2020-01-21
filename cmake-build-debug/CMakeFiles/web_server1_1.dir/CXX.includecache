@@ -6,6 +6,18 @@
 
 #IncludeRegexTransform: 
 
+/home/parallels/CLionProjects/web_server1.1/Epoll.cpp
+Epoll.h
+/home/parallels/CLionProjects/web_server1.1/Epoll.h
+sys/epoll.h
+-
+unp.h
+-
+WebLimit.h
+/home/parallels/CLionProjects/web_server1.1/WebLimit.h
+UtilFun.h
+/home/parallels/CLionProjects/web_server1.1/UtilFun.h
+
 /home/parallels/CLionProjects/web_server1.1/Epoll.h
 Task.h
 /home/parallels/CLionProjects/web_server1.1/Task.h
@@ -36,6 +48,24 @@ Epoll.h
 EventLoop.h
 /home/parallels/CLionProjects/web_server1.1/EventLoop.h
 
+/home/parallels/CLionProjects/web_server1.1/HttpData.cpp
+sys/epoll.h
+-
+HttpData.h
+/home/parallels/CLionProjects/web_server1.1/HttpData.h
+
+/home/parallels/CLionProjects/web_server1.1/HttpData.h
+UtilFun.h
+/home/parallels/CLionProjects/web_server1.1/UtilFun.h
+WebLimit.h
+/home/parallels/CLionProjects/web_server1.1/WebLimit.h
+Task.h
+/home/parallels/CLionProjects/web_server1.1/Task.h
+unp.h
+-
+functional
+-
+
 /home/parallels/CLionProjects/web_server1.1/Server.cpp
 Server.h
 /home/parallels/CLionProjects/web_server1.1/Server.h
@@ -47,6 +77,8 @@ WebLimit.h
 /home/parallels/CLionProjects/web_server1.1/WebLimit.h
 functional
 -
+HttpData.h
+/home/parallels/CLionProjects/web_server1.1/HttpData.h
 
 /home/parallels/CLionProjects/web_server1.1/Server.h
 Task.h

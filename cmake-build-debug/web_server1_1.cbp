@@ -102,6 +102,12 @@
 		<Unit filename="/home/parallels/CLionProjects/web_server1.1/EventLoopThread.h">
 			<Option target="web_server1_1"/>
 		</Unit>
+		<Unit filename="/home/parallels/CLionProjects/web_server1.1/HttpData.cpp">
+			<Option target="web_server1_1"/>
+		</Unit>
+		<Unit filename="/home/parallels/CLionProjects/web_server1.1/HttpData.h">
+			<Option target="web_server1_1"/>
+		</Unit>
 		<Unit filename="/home/parallels/CLionProjects/web_server1.1/Server.cpp">
 			<Option target="web_server1_1"/>
 		</Unit>

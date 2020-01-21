@@ -23,9 +23,18 @@ CMakeFiles/web_server1_1.dir/EventLoopThread.cpp.o: ../Task.h
 CMakeFiles/web_server1_1.dir/EventLoopThread.cpp.o: ../Thread.h
 CMakeFiles/web_server1_1.dir/EventLoopThread.cpp.o: ../WebLimit.h
 
+CMakeFiles/web_server1_1.dir/HttpData.cpp.o: ../Epoll.h
+CMakeFiles/web_server1_1.dir/HttpData.cpp.o: ../EventLoop.h
+CMakeFiles/web_server1_1.dir/HttpData.cpp.o: ../HttpData.cpp
+CMakeFiles/web_server1_1.dir/HttpData.cpp.o: ../HttpData.h
+CMakeFiles/web_server1_1.dir/HttpData.cpp.o: ../Task.h
+CMakeFiles/web_server1_1.dir/HttpData.cpp.o: ../UtilFun.h
+CMakeFiles/web_server1_1.dir/HttpData.cpp.o: ../WebLimit.h
+
 CMakeFiles/web_server1_1.dir/Server.cpp.o: ../Epoll.h
 CMakeFiles/web_server1_1.dir/Server.cpp.o: ../EventLoop.h
 CMakeFiles/web_server1_1.dir/Server.cpp.o: ../EventLoopThread.h
+CMakeFiles/web_server1_1.dir/Server.cpp.o: ../HttpData.h
 CMakeFiles/web_server1_1.dir/Server.cpp.o: ../Server.cpp
 CMakeFiles/web_server1_1.dir/Server.cpp.o: ../Server.h
 CMakeFiles/web_server1_1.dir/Server.cpp.o: ../Task.h

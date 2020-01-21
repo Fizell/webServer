@@ -25,7 +25,7 @@ void EventLoop::wakeup() {
 }
 
 EventLoop::EventLoop() :
-    event_fd_(createEventfd()), wait_Task_(new Task(this, event_fd_)), epoll_(new Epoll)  {
+    event_fd_(createEventfd()), wait_Task_(new Task(this, event_fd_)), epoll_(new Epoll), looping_(false), quit_(false)  {
     wait_Task_->setReadHandle(std::bind(&EventLoop::readHandle, this));
     epoll_->addEpoll(wait_Task_);
 }
@@ -37,16 +37,17 @@ void EventLoop::readHandle() {
     ssize_t n = readn(event_fd_, &one, sizeof one);
     if (n != sizeof one) {
         printf("wakeup success\n");
+        looping_ = true;
     }
     //wait_Task_->epoll_->addEpoll(EPOLLIN);
 }
 
 void EventLoop::loop() {
     //epoll_->addEpoll(wait_Task_);
-    while(1) {
+    while(!quit_) {
         fflush(stdout);
-        //std::vector<Task *> req = epoll_->poll();
-        //for(auto &it : req) it->eventHandle();
+        std::vector<Task *> req = epoll_->poll();
+        for(auto &it : req) it->eventHandle();
     }
 
 

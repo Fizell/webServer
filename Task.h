@@ -16,6 +16,7 @@ class Epoll;
 class Task {
 public:
     Task(EventLoop *loop, int fd);
+    Task(int fd);
     ~Task();
     typedef std::function<void()> func;
 
@@ -35,9 +36,11 @@ public:
     void setReadHandle(func &&func_) {readHandle_ = func_;}
     void setWriteHandle(func &&func_) {writeHandle_ = func_;}
     void eventHandle();
+    bool isMainLoop() {return isMainLoop_;}
+    void setMainLoop() {isMainLoop_ = true;}
 private:
     EventLoop *loop_;
-
+    bool isMainLoop_;
 };
 
 

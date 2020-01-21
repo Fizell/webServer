@@ -18,8 +18,9 @@ public:
     void run();
 
 private:
-    Thread thread_;
     EventLoop *loop_;
+    Thread thread_;
+
 
 };
 

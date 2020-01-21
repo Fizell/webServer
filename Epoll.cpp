@@ -14,7 +14,7 @@ void Epoll::addEpoll(Task *task) {
     fd_ = task->getFd();
     struct epoll_event ev;
     ev.data.fd = fd_;
-    ev.events = EPOLLIN;
+    ev.events = EPOLLIN | EPOLLONESHOT;
     fd_to_task_[fd_] = task;
     epoll_ctl(epollfd_, EPOLL_CTL_ADD, fd_, &ev);
 }
@@ -35,6 +35,11 @@ std::vector<Task *> Epoll::poll() {
             continue;
         std::vector<Task *> req;
         for(int i = 0; i< events_count; i++) {
+            if(events[i].data.fd != fd_) {
+                events[i].events = 0;
+                continue;
+            }
+
             Task *cur_req = fd_to_task_[fd_];
             cur_req->rfd_ = events[i].data.fd;
             cur_req->revents = events[i].events;

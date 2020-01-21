@@ -14,11 +14,13 @@ public:
     ~ThreadPool();
     EventLoop * getNext();
     void creatThreadPool();
-private:
+
     EventLoop *baseLoop_;
     std::vector<EventLoopThread *> loop_threads_;
     std::vector<EventLoop *> loops_;
     int next_;
+private:
+
 };
 
 
