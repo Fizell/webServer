@@ -2,6 +2,7 @@
 // Created by parallels on 2020/1/20.
 //
 
+#include <unistd.h>
 #include "EventLoopThread.h"
 
 EventLoopThread::EventLoopThread() :
@@ -12,13 +13,14 @@ EventLoopThread::EventLoopThread() :
 EventLoopThread::~EventLoopThread() {}
 
 void EventLoopThread::run() {
-
+    loop_->loop();
 }
 
 EventLoop *EventLoopThread::startLoop() {
     EventLoop loop;
+    thread_.start();
     loop_ = &loop;
-
-    loop_->loop();
+    loop_->wait_Task_->epoll_->addEpoll(loop_->wait_Task_);
+    sleep(2);
     return loop_;
 }

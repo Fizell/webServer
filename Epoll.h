@@ -16,15 +16,15 @@ class Epoll {
 public:
     Epoll();
     ~Epoll();
-    std::vector<std::shared_ptr<Task>> poll();
-    void addEpoll(std::shared_ptr<Task> task);
-    void removeEpoll(std::shared_ptr<Task> task);
-    void updataEpoll(std::shared_ptr<Task> task);
+    std::vector<Task *> poll();
+    void addEpoll(Task *task);
+    void removeEpoll(Task *task);
+    void updataEpoll(Task *task);
 
     int fd_;
     int epollfd_;
     struct epoll_event events[MAX_EVENTS];
-    std::shared_ptr<Task> fd_to_task_[MAX_EVENTS];
+    Task *fd_to_task_[MAX_EVENTS];
 
 private:
 };

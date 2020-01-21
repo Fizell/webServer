@@ -17,13 +17,15 @@ public:
     EventLoop();
     ~EventLoop();
     void readHandle();
-    void writeHandle();
     void loop();
     void wakeup();
-private:
-    std::shared_ptr<Task> wait_Task_;
+
     int event_fd_;
+    Task *wait_Task_;
     Epoll *epoll_;
+private:
+
+
 };
 
 

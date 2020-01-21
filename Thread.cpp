@@ -31,11 +31,11 @@ void Thread::start() {
     Data *data =  new Data(&tid_, &pid_, func_, name_);
     if (pthread_create(&tid_, NULL, startThread, data)) {
         start_ = false;
-        printf("thread : %lud start error", tid_);
+        printf("thread : %lud start error\n", tid_);
         delete data;
     } else {
         start_ = true;
-        printf("thread : %lud start success", tid_);
+        printf("thread : %lud start success\n", tid_);
         //latch_.wait();
     }
 }

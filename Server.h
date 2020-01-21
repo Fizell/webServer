@@ -7,6 +7,7 @@
 
 #include "Task.h"
 #include "EventLoop.h"
+#include "ThreadPool.h"
 
 class Task;
 class Server {
@@ -19,8 +20,10 @@ public:
     void readHandle();
     void writeHandle();
 private:
+    int listen_fd;
     EventLoop *loop_;
-    std::shared_ptr<Task> task_;
+    Task *task_;
+    ThreadPool *threadPool_;
     char ipbuf_tmp_[50];
     int n;
     char buff[MAXLINE];

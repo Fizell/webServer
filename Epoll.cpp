@@ -10,7 +10,7 @@
 Epoll::Epoll() : epollfd_(epoll_create(MAX_EVENTS)) {}
 Epoll::~Epoll() {}
 
-void Epoll::addEpoll(std::shared_ptr<Task> task) {
+void Epoll::addEpoll(Task *task) {
     fd_ = task->getFd();
     struct epoll_event ev;
     ev.data.fd = fd_;
@@ -19,7 +19,7 @@ void Epoll::addEpoll(std::shared_ptr<Task> task) {
     epoll_ctl(epollfd_, EPOLL_CTL_ADD, fd_, &ev);
 }
 
-std::vector<std::shared_ptr<Task>> Epoll::poll() {
+std::vector<Task *> Epoll::poll() {
     int events_count, connfd, sockfd, n;
     struct epoll_event ev;
     struct sockaddr_in chiladdr;
@@ -33,29 +33,21 @@ std::vector<std::shared_ptr<Task>> Epoll::poll() {
         }
         else if(events_count == 0)
             continue;
-        std::vector<std::shared_ptr<Task>> req;
+        std::vector<Task *> req;
         for(int i = 0; i< events_count; i++) {
-            std::shared_ptr<Task> cur_req = fd_to_task_[fd_];
+            Task *cur_req = fd_to_task_[fd_];
             cur_req->rfd_ = events[i].data.fd;
             cur_req->revents = events[i].events;
             cur_req->events = 0;
             req.push_back(cur_req);
-            /*
-            if (events[i].data.fd == fd_) {
-            } else if (events[i].events & EPOLLIN) {
-
-            } else if (events[i].events & EPOLLOUT) {
-
-            }
             fflush(stdout);
-             */
+
         }
-        if(req.size() != 0)
-            return req;
+        return req;
     }
 }
 
-void Epoll::removeEpoll(std::shared_ptr<Task> task) {
+void Epoll::removeEpoll(Task * task) {
     events[task->fd_].events = 0;
     events[task->fd_].data.fd = -1;
 }

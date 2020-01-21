@@ -4,7 +4,7 @@
 
 #include "ThreadPool.h"
 
-ThreadPool::ThreadPool(EventLoop baseloop) : baseLoop_(baseloop) {}
+ThreadPool::ThreadPool(EventLoop *baseloop) : baseLoop_(baseloop), next_(0) {}
 
 ThreadPool::~ThreadPool() {}
 
@@ -16,6 +16,11 @@ void ThreadPool::creatThreadPool() {
     printf("ThreadPool create success\n");
 }
 
-int ThreadPool::getNext() {
-
+EventLoop *ThreadPool::getNext() {
+    EventLoop *loop = baseLoop_;
+    if (!loops_.empty()) {
+        loop = loops_[next_];
+        next_ = (next_ + 1) % MAX_THREAD;
+    }
+    return loop;
 }

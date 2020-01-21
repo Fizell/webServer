@@ -33,17 +33,21 @@ EventLoop::EventLoop() :
 EventLoop::~EventLoop() {}
 
 void EventLoop::readHandle() {
-
-}
-
-void EventLoop::writeHandle() {
-
+    uint64_t one = 1;
+    ssize_t n = readn(event_fd_, &one, sizeof one);
+    if (n != sizeof one) {
+        printf("wakeup success\n");
+    }
+    //wait_Task_->epoll_->addEpoll(EPOLLIN);
 }
 
 void EventLoop::loop() {
-    epoll_->addEpoll(wait_Task_);
-    std::vector<std::shared_ptr<Task>> req;
-    req = epoll_->poll();
+    //epoll_->addEpoll(wait_Task_);
+    while(1) {
+        fflush(stdout);
+        //std::vector<Task *> req = epoll_->poll();
+        //for(auto &it : req) it->eventHandle();
+    }
 
 
 }

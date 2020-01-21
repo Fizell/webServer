@@ -10,14 +10,15 @@
 #include "WebLimit.h"
 class ThreadPool {
 public:
-    ThreadPool(EventLoop baseLoop);
+    ThreadPool(EventLoop *baseLoop);
     ~ThreadPool();
-    int getNext();
+    EventLoop * getNext();
     void creatThreadPool();
 private:
-    EventLoop baseLoop_;
+    EventLoop *baseLoop_;
     std::vector<EventLoopThread *> loop_threads_;
     std::vector<EventLoop *> loops_;
+    int next_;
 };
 
 

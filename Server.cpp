@@ -8,10 +8,12 @@
 #include "WebLimit.h"
 #include <functional>
 
-Server::Server(EventLoop* loop, int port) : loop_(loop), task_(new Task(loop_, startListen(port))) {}
+Server::Server(EventLoop* loop, int port) : listen_fd(startListen(port)), threadPool_(new ThreadPool(loop_)), loop_(loop), task_(new Task(loop_, listen_fd)) {}
 Server::~Server() {}
 
 void Server::start() {
+
+    threadPool_->creatThreadPool();
     task_->epoll_->addEpoll(task_);
 
     task_->setConnHandle(std::bind(&Server::newConnHandle, this));
@@ -19,10 +21,9 @@ void Server::start() {
     task_->setWriteHandle(std::bind(&Server::writeHandle, this));
 
     for(;;) {
-        std::vector<std::shared_ptr<Task>> req;
+        std::vector<Task *> req;
         req = task_->epoll_->poll();
         for(auto &it : req) it->eventHandle();
-
     }
 
 }
