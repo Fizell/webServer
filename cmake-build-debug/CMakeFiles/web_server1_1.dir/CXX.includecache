@@ -6,17 +6,19 @@
 
 #IncludeRegexTransform: 
 
-/home/parallels/CLionProjects/web_server1.1/Epoll.cpp
-Epoll.h
-/home/parallels/CLionProjects/web_server1.1/Epoll.h
-sys/epoll.h
+/home/parallels/CLionProjects/web_server1.1/Condition.h
+errno.h
 -
-unp.h
+pthread.h
 -
-WebLimit.h
-/home/parallels/CLionProjects/web_server1.1/WebLimit.h
-UtilFun.h
-/home/parallels/CLionProjects/web_server1.1/UtilFun.h
+pthread.h
+-
+time.h
+-
+cstdint
+-
+MutexLock.h
+/home/parallels/CLionProjects/web_server1.1/MutexLock.h
 
 /home/parallels/CLionProjects/web_server1.1/Epoll.h
 Task.h
@@ -39,6 +41,12 @@ Task.h
 /home/parallels/CLionProjects/web_server1.1/Task.h
 Epoll.h
 /home/parallels/CLionProjects/web_server1.1/Epoll.h
+
+/home/parallels/CLionProjects/web_server1.1/EventLoopThread.cpp
+unistd.h
+-
+EventLoopThread.h
+/home/parallels/CLionProjects/web_server1.1/EventLoopThread.h
 
 /home/parallels/CLionProjects/web_server1.1/EventLoopThread.h
 Thread.h
@@ -47,46 +55,14 @@ Epoll.h
 /home/parallels/CLionProjects/web_server1.1/Epoll.h
 EventLoop.h
 /home/parallels/CLionProjects/web_server1.1/EventLoop.h
+Condition.h
+/home/parallels/CLionProjects/web_server1.1/Condition.h
 
-/home/parallels/CLionProjects/web_server1.1/HttpData.cpp
-sys/epoll.h
+/home/parallels/CLionProjects/web_server1.1/MutexLock.h
+pthread.h
 -
-HttpData.h
-/home/parallels/CLionProjects/web_server1.1/HttpData.h
-
-/home/parallels/CLionProjects/web_server1.1/HttpData.h
-UtilFun.h
-/home/parallels/CLionProjects/web_server1.1/UtilFun.h
-WebLimit.h
-/home/parallels/CLionProjects/web_server1.1/WebLimit.h
-Task.h
-/home/parallels/CLionProjects/web_server1.1/Task.h
-unp.h
+cstdio
 -
-functional
--
-
-/home/parallels/CLionProjects/web_server1.1/Server.cpp
-Server.h
-/home/parallels/CLionProjects/web_server1.1/Server.h
-UtilFun.h
-/home/parallels/CLionProjects/web_server1.1/UtilFun.h
-unp.h
--
-WebLimit.h
-/home/parallels/CLionProjects/web_server1.1/WebLimit.h
-functional
--
-HttpData.h
-/home/parallels/CLionProjects/web_server1.1/HttpData.h
-
-/home/parallels/CLionProjects/web_server1.1/Server.h
-Task.h
-/home/parallels/CLionProjects/web_server1.1/Task.h
-EventLoop.h
-/home/parallels/CLionProjects/web_server1.1/EventLoop.h
-ThreadPool.h
-/home/parallels/CLionProjects/web_server1.1/ThreadPool.h
 
 /home/parallels/CLionProjects/web_server1.1/Task.h
 stdint.h
@@ -107,26 +83,6 @@ string
 -
 pthread.h
 -
-
-/home/parallels/CLionProjects/web_server1.1/ThreadPool.h
-vector
--
-EventLoopThread.h
-/home/parallels/CLionProjects/web_server1.1/EventLoopThread.h
-WebLimit.h
-/home/parallels/CLionProjects/web_server1.1/WebLimit.h
-
-/home/parallels/CLionProjects/web_server1.1/UtilFun.h
-errno.h
--
-string
--
-sys/socket.h
--
-unistd.h
--
-WebLimit.h
-/home/parallels/CLionProjects/web_server1.1/WebLimit.h
 
 /home/parallels/CLionProjects/web_server1.1/WebLimit.h
 

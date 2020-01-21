@@ -9,6 +9,7 @@
 #include "Thread.h"
 #include "Epoll.h"
 #include "EventLoop.h"
+#include "Condition.h"
 
 class EventLoopThread {
 public:
@@ -20,7 +21,8 @@ public:
 private:
     EventLoop *loop_;
     Thread thread_;
-
+    Condition cond_;
+    MutexLock mutex_;
 
 };
 

@@ -84,6 +84,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/parallels/CLionProjects/web_server1.1/Condition.h">
+			<Option target="web_server1_1"/>
+		</Unit>
 		<Unit filename="/home/parallels/CLionProjects/web_server1.1/Epoll.cpp">
 			<Option target="web_server1_1"/>
 		</Unit>
@@ -106,6 +109,9 @@
 			<Option target="web_server1_1"/>
 		</Unit>
 		<Unit filename="/home/parallels/CLionProjects/web_server1.1/HttpData.h">
+			<Option target="web_server1_1"/>
+		</Unit>
+		<Unit filename="/home/parallels/CLionProjects/web_server1.1/MutexLock.h">
 			<Option target="web_server1_1"/>
 		</Unit>
 		<Unit filename="/home/parallels/CLionProjects/web_server1.1/Server.cpp">
