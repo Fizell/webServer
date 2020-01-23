@@ -35,13 +35,14 @@ std::vector<Task *> Epoll::poll() {
             continue;
         std::vector<Task *> req;
         for(int i = 0; i< events_count; i++) {
+            /*
             if(events[i].data.fd != fd_) {
                 events[i].events = 0;
                 continue;
             }
-
-            Task *cur_req = fd_to_task_[fd_];
-            cur_req->rfd_ = events[i].data.fd;
+             */
+            Task *cur_req = fd_to_task_[events[i].data.fd];
+            //cur_req->rfd_ = events[i].data.fd;
             cur_req->revents = events[i].events;
             cur_req->events = 0;
             req.push_back(cur_req);

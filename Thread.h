@@ -10,6 +10,8 @@
 #include <functional>
 #include <string>
 #include <pthread.h>
+#include "Condition.h"
+
 class Thread {
 public:
     typedef std::function<void()> func;
@@ -24,6 +26,8 @@ private:
     pthread_t tid_;
     pid_t pid_;
     std::string name_;
+    Condition cond_;
+    MutexLock mutex_;
 
 };
 

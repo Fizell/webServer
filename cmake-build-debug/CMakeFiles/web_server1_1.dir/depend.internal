@@ -54,6 +54,8 @@ CMakeFiles/web_server1_1.dir/Task.cpp.o
  /home/parallels/CLionProjects/web_server1.1/Task.h
  /home/parallels/CLionProjects/web_server1.1/WebLimit.h
 CMakeFiles/web_server1_1.dir/Thread.cpp.o
+ /home/parallels/CLionProjects/web_server1.1/Condition.h
+ /home/parallels/CLionProjects/web_server1.1/MutexLock.h
  /home/parallels/CLionProjects/web_server1.1/Thread.cpp
  /home/parallels/CLionProjects/web_server1.1/Thread.h
 CMakeFiles/web_server1_1.dir/ThreadPool.cpp.o

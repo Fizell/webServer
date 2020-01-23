@@ -74,13 +74,15 @@ void Server::test3() {
 }
 void Server::newConnHandle() {
     //task_->epoll_->addEpoll(task_);
-
+    int fd_ = task_->epoll_->fd_;
+    struct epoll_event ev;
+    ev.data.fd = fd_;
+    ev.events = EPOLLIN | EPOLLONESHOT;
+    epoll_ctl(task_->epoll_->epollfd_, EPOLL_CTL_MOD, fd_, &ev);
     int connfd;
     struct sockaddr_in chiladdr;
-    struct epoll_event ev;
     bzero(&chiladdr, sizeof(chiladdr));
     socklen_t chillen = sizeof(chiladdr);
-    int fd_ = task_->epoll_->fd_;
     read(fd_, buff, MAXLINE);
     connfd = accept(fd_, (SA *) &chiladdr, &chillen);
     if (connfd < 0) {
@@ -96,9 +98,7 @@ void Server::newConnHandle() {
            inet_ntop(AF_INET, &chiladdr.sin_addr.s_addr, ipbuf_tmp_, sizeof(ipbuf_tmp_)),
            ntohs(chiladdr.sin_port));
 
-    ev.data.fd = fd_;
-    ev.events = EPOLLIN | EPOLLONESHOT;
-    epoll_ctl(task_->epoll_->epollfd_, EPOLL_CTL_MOD, fd_, &ev);
+
     /*
     ev.data.fd = connfd;
     ev.events = EPOLLIN;

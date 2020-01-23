@@ -23,7 +23,7 @@ private:
     Thread thread_;
     Condition cond_;
     MutexLock mutex_;
-
+    bool flag_;
 };
 
 

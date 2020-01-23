@@ -19,8 +19,9 @@ public:
         pthread_cond_init(&cond, NULL);
     }
     ~Condition() { pthread_cond_destroy(&cond); }
-    void wait() { pthread_cond_wait(&cond, mutex.get()); }
-    void notify() { pthread_cond_signal(&cond); }
+    void wait() { pthread_cond_wait(&cond, mutex.get());
+    printf("wait\n"); fflush(stdout);}
+    int notify() { return pthread_cond_signal(&cond); }
     void notifyAll() { pthread_cond_broadcast(&cond); }
     bool waitForSeconds(int seconds) {
         struct timespec abstime;

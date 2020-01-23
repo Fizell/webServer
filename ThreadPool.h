@@ -19,6 +19,8 @@ public:
     std::vector<EventLoopThread *> loop_threads_;
     std::vector<EventLoop *> loops_;
     int next_;
+    Condition cond_;
+    MutexLock mutex_;
 private:
 
 };

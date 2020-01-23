@@ -20,8 +20,11 @@ void EventLoop::wakeup() {
     uint64_t one = 1;
     ssize_t n = writen(event_fd_, (char*)(&one), sizeof one);
     if (n != sizeof one) {
-        printf("wakeup a thread\n");
+        printf("wakeup a thread error\n");
     }
+    else
+        printf("wakeup a thread\n");
+    fflush(stdout);
 }
 
 EventLoop::EventLoop() :
@@ -36,9 +39,16 @@ void EventLoop::readHandle() {
     uint64_t one = 1;
     ssize_t n = readn(event_fd_, &one, sizeof one);
     if (n != sizeof one) {
+        printf("wakeup error\n");
+        //looping_ = true;
+    }
+    else {
         printf("wakeup success\n");
         looping_ = true;
     }
+    fflush(stdout);
+
+
     //wait_Task_->epoll_->addEpoll(EPOLLIN);
 }
 

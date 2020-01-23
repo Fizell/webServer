@@ -6,19 +6,17 @@
 
 #IncludeRegexTransform: 
 
-/home/parallels/CLionProjects/web_server1.1/Condition.h
-errno.h
+/home/parallels/CLionProjects/web_server1.1/Epoll.cpp
+Epoll.h
+/home/parallels/CLionProjects/web_server1.1/Epoll.h
+sys/epoll.h
 -
-pthread.h
+unp.h
 -
-pthread.h
--
-time.h
--
-cstdint
--
-MutexLock.h
-/home/parallels/CLionProjects/web_server1.1/MutexLock.h
+WebLimit.h
+/home/parallels/CLionProjects/web_server1.1/WebLimit.h
+UtilFun.h
+/home/parallels/CLionProjects/web_server1.1/UtilFun.h
 
 /home/parallels/CLionProjects/web_server1.1/Epoll.h
 Task.h
@@ -42,28 +40,6 @@ Task.h
 Epoll.h
 /home/parallels/CLionProjects/web_server1.1/Epoll.h
 
-/home/parallels/CLionProjects/web_server1.1/EventLoopThread.cpp
-unistd.h
--
-EventLoopThread.h
-/home/parallels/CLionProjects/web_server1.1/EventLoopThread.h
-
-/home/parallels/CLionProjects/web_server1.1/EventLoopThread.h
-Thread.h
-/home/parallels/CLionProjects/web_server1.1/Thread.h
-Epoll.h
-/home/parallels/CLionProjects/web_server1.1/Epoll.h
-EventLoop.h
-/home/parallels/CLionProjects/web_server1.1/EventLoop.h
-Condition.h
-/home/parallels/CLionProjects/web_server1.1/Condition.h
-
-/home/parallels/CLionProjects/web_server1.1/MutexLock.h
-pthread.h
--
-cstdio
--
-
 /home/parallels/CLionProjects/web_server1.1/Task.h
 stdint.h
 -
@@ -74,15 +50,17 @@ functional
 EventLoop.h
 /home/parallels/CLionProjects/web_server1.1/EventLoop.h
 
-/home/parallels/CLionProjects/web_server1.1/Thread.h
-sys/types.h
--
-functional
+/home/parallels/CLionProjects/web_server1.1/UtilFun.h
+errno.h
 -
 string
 -
-pthread.h
+sys/socket.h
 -
+unistd.h
+-
+WebLimit.h
+/home/parallels/CLionProjects/web_server1.1/WebLimit.h
 
 /home/parallels/CLionProjects/web_server1.1/WebLimit.h
 

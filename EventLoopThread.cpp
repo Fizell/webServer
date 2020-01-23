@@ -9,31 +9,36 @@ EventLoopThread::EventLoopThread() :
     loop_(NULL),
     thread_(std::bind(&EventLoopThread::run, this), "EventLoopThread"),
     mutex_(),
-    cond_(mutex_)
+    cond_(mutex_),
+    flag_(false)
 {}
 
 
 EventLoopThread::~EventLoopThread() {}
 
 void EventLoopThread::run() {
-    {
-        MutexLockGuard lock(mutex_);
-        usleep(100000);
-        cond_.notify();
-    }
+
+    //usleep(1000000);
+    mutex_.lock();
+    while(!flag_);
+    usleep(100);
+    cond_.notify();
+    mutex_.unlock();
     while(loop_ == NULL);
     loop_->loop();
 }
 
 EventLoop *EventLoopThread::startLoop() {
     EventLoop *loop = new EventLoop();
-    thread_.start();
     loop_ = loop;
     loop_->wait_Task_->epoll_->addEpoll(loop_->wait_Task_);
-    {
-        MutexLockGuard lock(mutex_);
-        cond_.wait();
-    }
+    mutex_.lock();
+    flag_ = false;
+    thread_.start();
+    flag_ = true;
+    cond_.wait();
 
+    usleep(100000);//需要等到进入到loop的循环，startLoop才能返回
+    mutex_.unlock();
     return loop_;
 }

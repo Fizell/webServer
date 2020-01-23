@@ -53,6 +53,8 @@ CMakeFiles/web_server1_1.dir/Task.cpp.o: ../Task.cpp
 CMakeFiles/web_server1_1.dir/Task.cpp.o: ../Task.h
 CMakeFiles/web_server1_1.dir/Task.cpp.o: ../WebLimit.h
 
+CMakeFiles/web_server1_1.dir/Thread.cpp.o: ../Condition.h
+CMakeFiles/web_server1_1.dir/Thread.cpp.o: ../MutexLock.h
 CMakeFiles/web_server1_1.dir/Thread.cpp.o: ../Thread.cpp
 CMakeFiles/web_server1_1.dir/Thread.cpp.o: ../Thread.h
 
