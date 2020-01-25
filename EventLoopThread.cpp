@@ -31,7 +31,7 @@ void EventLoopThread::run() {
 EventLoop *EventLoopThread::startLoop() {
     EventLoop *loop = new EventLoop();
     loop_ = loop;
-    loop_->wait_Task_->epoll_->addEpoll(loop_->wait_Task_);
+    loop_->epoll_->addEpoll(loop_->wait_Task_);
     mutex_.lock();
     flag_ = false;
     thread_.start();

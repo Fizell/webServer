@@ -17,6 +17,7 @@ public:
     void readHandle();
     void writeHandle();
 
+    Task *getTask() {return task_;}
 private:
     int fd_;
     char ipbuf_tmp_[50];

@@ -91,7 +91,9 @@ void Server::newConnHandle() {
     }
 
     EventLoop *loop = threadPool_->getNext();
-    HttpData *http = new HttpData(loop, connfd);
+    HttpData *http(new HttpData(loop, connfd));
+    http->getTask()->setHolder(http);
+    loop->epoll_->addEpoll(http->getTask());
     loop->wakeup();
 
     printf("New connect from %s port: %d\n",

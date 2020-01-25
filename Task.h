@@ -13,6 +13,7 @@
 
 class EventLoop;
 class Epoll;
+class HttpData;
 class Task {
 public:
     Task(EventLoop *loop, int fd);
@@ -38,9 +39,15 @@ public:
     void eventHandle();
     bool isMainLoop() {return isMainLoop_;}
     void setMainLoop() {isMainLoop_ = true;}
+
+    void setHolder(HttpData *holder) { holder_ = holder; }
+    HttpData *getHolder() { return holder_; }
+
+
 private:
     EventLoop *loop_;
     bool isMainLoop_;
+    HttpData *holder_;
 };
 
 

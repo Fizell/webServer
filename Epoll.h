@@ -11,7 +11,10 @@
 #include <sys/epoll.h>
 #include "WebLimit.h"
 
+
+
 class Task;
+class HttpData;
 class Epoll {
 public:
     Epoll();
@@ -23,10 +26,12 @@ public:
 
     int fd_;
     int epollfd_;
-    struct epoll_event events[MAX_EVENTS];
-    Task *fd_to_task_[MAX_EVENTS];
+    struct epoll_event events[MAX_EVENT];
+    Task *fd_to_task_[MAXFDS];
+    HttpData *fd_to_http_[MAXFDS];
 
 private:
+
 };
 
 

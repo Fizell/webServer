@@ -30,10 +30,13 @@ void EventLoop::wakeup() {
 EventLoop::EventLoop() :
     event_fd_(createEventfd()), wait_Task_(new Task(this, event_fd_)), epoll_(new Epoll), looping_(false), quit_(false)  {
     wait_Task_->setReadHandle(std::bind(&EventLoop::readHandle, this));
-    epoll_->addEpoll(wait_Task_);
+    //epoll_->addEpoll(wait_Task_);
 }
 
-EventLoop::~EventLoop() {}
+EventLoop::~EventLoop() {
+    printf("delete loop\n");
+    fflush(stdout);
+}
 
 void EventLoop::readHandle() {
     uint64_t one = 1;

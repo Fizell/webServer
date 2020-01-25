@@ -6,18 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/parallels/CLionProjects/web_server1.1/Epoll.cpp
-Epoll.h
-/home/parallels/CLionProjects/web_server1.1/Epoll.h
-sys/epoll.h
--
-unp.h
--
-WebLimit.h
-/home/parallels/CLionProjects/web_server1.1/WebLimit.h
-UtilFun.h
-/home/parallels/CLionProjects/web_server1.1/UtilFun.h
-
 /home/parallels/CLionProjects/web_server1.1/Epoll.h
 Task.h
 /home/parallels/CLionProjects/web_server1.1/Task.h
@@ -39,6 +27,28 @@ Task.h
 /home/parallels/CLionProjects/web_server1.1/Task.h
 Epoll.h
 /home/parallels/CLionProjects/web_server1.1/Epoll.h
+
+/home/parallels/CLionProjects/web_server1.1/HttpData.cpp
+sys/epoll.h
+-
+HttpData.h
+/home/parallels/CLionProjects/web_server1.1/HttpData.h
+
+/home/parallels/CLionProjects/web_server1.1/HttpData.h
+UtilFun.h
+/home/parallels/CLionProjects/web_server1.1/UtilFun.h
+WebLimit.h
+/home/parallels/CLionProjects/web_server1.1/WebLimit.h
+Task.h
+/home/parallels/CLionProjects/web_server1.1/Task.h
+unp.h
+-
+functional
+-
+
+/home/parallels/CLionProjects/web_server1.1/Task.cpp
+Task.h
+/home/parallels/CLionProjects/web_server1.1/Task.h
 
 /home/parallels/CLionProjects/web_server1.1/Task.h
 stdint.h

@@ -7,8 +7,11 @@
 #include <unp.h>
 #include "WebLimit.h"
 #include "UtilFun.h"
-Epoll::Epoll() : epollfd_(epoll_create(MAX_EVENTS)) {}
-Epoll::~Epoll() {}
+Epoll::Epoll() : epollfd_(epoll_create(MAXFDS)) {}
+Epoll::~Epoll() {
+    printf("http free\n");
+    fflush(stdout);
+}
 
 void Epoll::addEpoll(Task *task) {
     fd_ = task->getFd();
@@ -16,6 +19,7 @@ void Epoll::addEpoll(Task *task) {
     ev.data.fd = fd_;
     ev.events = EPOLLIN | EPOLLONESHOT;
     fd_to_task_[fd_] = task;
+    //fd_to_http_[fd_] = task->getHolder();
     epoll_ctl(epollfd_, EPOLL_CTL_ADD, fd_, &ev);
 }
 
@@ -26,9 +30,10 @@ std::vector<Task *> Epoll::poll() {
     char ipbuf_tmp[50];
     char buff[MAXLINE];
     for (;;) {
-        events_count=epoll_wait(epollfd_,events, MAX_EVENTS, EPOLL_TIMEWAIT);
+        events_count=epoll_wait(epollfd_,events, MAX_EVENT, EPOLL_TIMEWAIT);
         if(events_count < 0) {
             ERR_MSG("epoll_wait error");
+            //exit(0);
             continue;
         }
         else if(events_count == 0)
@@ -41,6 +46,8 @@ std::vector<Task *> Epoll::poll() {
                 continue;
             }
              */
+            if(fd_to_task_[events[i].data.fd] == NULL)
+                continue;
             Task *cur_req = fd_to_task_[events[i].data.fd];
             //cur_req->rfd_ = events[i].data.fd;
             cur_req->revents = events[i].events;
@@ -53,7 +60,17 @@ std::vector<Task *> Epoll::poll() {
     }
 }
 
-void Epoll::removeEpoll(Task * task) {
-    events[task->fd_].events = 0;
-    events[task->fd_].data.fd = -1;
+void Epoll::removeEpoll(Task *task) {
+    int fd = task->getFd();
+    struct epoll_event event;
+    event.data.fd = fd;
+    event.events = EPOLLIN | EPOLLONESHOT;
+    if (epoll_ctl(task->epoll_->epollfd_, EPOLL_CTL_DEL, fd, &event) < 0) {
+        ERR_MSG("epoll_del error");
+        exit(0);
+    }
+    //delete fd_to_task_[fd];
+    fd_to_task_[fd] = NULL;
+    //delete fd_to_http_[fd];
+    //fd_to_http_[fd] = NULL;
 }
