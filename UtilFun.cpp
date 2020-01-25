@@ -52,7 +52,8 @@ ssize_t readn(int fd, std::string &inBuffer, bool &zero) {
     return readSum;
 }
 
-ssize_t writen(int fd, void *buff, size_t n) {
+
+ssize_t writen2(int fd, void *buff, size_t n) {
     size_t nleft = n;
     ssize_t nwritten = 0;
     ssize_t writeSum = 0;
@@ -75,6 +76,7 @@ ssize_t writen(int fd, void *buff, size_t n) {
     }
     return writeSum;
 }
+
 
 ssize_t writen(int fd, std::string &sbuff) {
     size_t nleft = sbuff.size();

@@ -13,24 +13,16 @@
   <component name="ChangeListManager">
     <list default="true" id="ca483f4a-695e-4170-8d64-85524cf93c8d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Epoll.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Epoll.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Epoll.h" beforeDir="false" afterPath="$PROJECT_DIR$/Epoll.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EventLoop.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/EventLoop.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EventLoopThread.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/EventLoopThread.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HttpData.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/HttpData.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HttpData.h" beforeDir="false" afterPath="$PROJECT_DIR$/HttpData.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Server.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Task.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Task.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Task.h" beforeDir="false" afterPath="$PROJECT_DIR$/Task.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ThreadPool.h" beforeDir="false" afterPath="$PROJECT_DIR$/ThreadPool.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UtilFun.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/UtilFun.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UtilFun.h" beforeDir="false" afterPath="$PROJECT_DIR$/UtilFun.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebLimit.h" beforeDir="false" afterPath="$PROJECT_DIR$/WebLimit.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/Epoll.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/Epoll.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/Server.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/Server.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/Task.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/Task.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/main.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/UtilFun.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/UtilFun.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/web_server1_1" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/web_server1_1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +89,7 @@
       <workItem from="1579595477212" duration="29218000" />
       <workItem from="1579745907683" duration="18346000" />
       <workItem from="1579853589131" duration="6872000" />
-      <workItem from="1579928736848" duration="13689000" />
+      <workItem from="1579928736848" duration="20444000" />
     </task>
     <task id="LOCAL-00001" summary="add ThreadPool(semi-finished)">
       <created>1579591497492</created>
@@ -134,7 +126,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579782913749</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="-Memmory optimization&#10;-High concurrent">
+      <created>1579942679696</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1579942679696</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -146,65 +145,66 @@
     <MESSAGE value="add ThreadPool" />
     <MESSAGE value="Add one-event-one-shot &amp;&amp; Some optimization" />
     <MESSAGE value="Some optimization" />
-    <option name="LAST_COMMIT_MESSAGE" value="Some optimization" />
+    <MESSAGE value="-Memmory optimization&#10;-High concurrent" />
+    <option name="LAST_COMMIT_MESSAGE" value="-Memmory optimization&#10;-High concurrent" />
   </component>
   <component name="WindowStateProjectService">
     <state x="210" y="59" key="#Notifications" timestamp="1579512186200">
       <screen x="61" y="24" width="1219" height="776" />
     </state>
     <state x="210" y="59" key="#Notifications/61.24.1219.776@61.24.1219.776" timestamp="1579512186200" />
-    <state x="240" y="24" key="CommitChangelistDialog2" timestamp="1579942580937">
+    <state x="240" y="24" key="CommitChangelistDialog2" timestamp="1579942679296">
       <screen x="61" y="24" width="1219" height="776" />
     </state>
-    <state x="240" y="24" key="CommitChangelistDialog2/61.24.1219.776@61.24.1219.776" timestamp="1579942580937" />
-    <state width="527" height="466" key="DebuggerActiveHint" timestamp="1579938931610">
+    <state x="240" y="24" key="CommitChangelistDialog2/61.24.1219.776@61.24.1219.776" timestamp="1579942679296" />
+    <state width="527" height="466" key="DebuggerActiveHint" timestamp="1579964598030">
       <screen x="61" y="24" width="1219" height="776" />
     </state>
-    <state width="527" height="466" key="DebuggerActiveHint/61.24.1219.776@61.24.1219.776" timestamp="1579938931610" />
+    <state width="527" height="466" key="DebuggerActiveHint/61.24.1219.776@61.24.1219.776" timestamp="1579964598030" />
     <state x="461" y="349" key="Github.CreateGistDialog" timestamp="1579513468778">
       <screen x="61" y="24" width="1219" height="776" />
     </state>
     <state x="461" y="349" key="Github.CreateGistDialog/61.24.1219.776@61.24.1219.776" timestamp="1579513468778" />
-    <state width="673" height="227" key="GridCell.Tab.0.bottom" timestamp="1579942226797">
+    <state width="580" height="187" key="GridCell.Tab.0.bottom" timestamp="1579964879112">
       <screen x="61" y="24" width="1219" height="776" />
     </state>
     <state width="735" height="164" key="GridCell.Tab.0.bottom/61.24.1219.662@61.24.1219.662" timestamp="1579924068736" />
-    <state width="673" height="227" key="GridCell.Tab.0.bottom/61.24.1219.776@61.24.1219.776" timestamp="1579942226797" />
-    <state width="673" height="227" key="GridCell.Tab.0.center" timestamp="1579942226796">
+    <state width="580" height="187" key="GridCell.Tab.0.bottom/61.24.1219.776@61.24.1219.776" timestamp="1579964879112" />
+    <state width="580" height="187" key="GridCell.Tab.0.center" timestamp="1579964879110">
       <screen x="61" y="24" width="1219" height="776" />
     </state>
     <state width="735" height="164" key="GridCell.Tab.0.center/61.24.1219.662@61.24.1219.662" timestamp="1579924068735" />
-    <state width="673" height="227" key="GridCell.Tab.0.center/61.24.1219.776@61.24.1219.776" timestamp="1579942226796" />
-    <state width="673" height="227" key="GridCell.Tab.0.left" timestamp="1579942226796">
+    <state width="580" height="187" key="GridCell.Tab.0.center/61.24.1219.776@61.24.1219.776" timestamp="1579964879110" />
+    <state width="580" height="187" key="GridCell.Tab.0.left" timestamp="1579964879110">
       <screen x="61" y="24" width="1219" height="776" />
     </state>
     <state width="735" height="164" key="GridCell.Tab.0.left/61.24.1219.662@61.24.1219.662" timestamp="1579924068734" />
-    <state width="673" height="227" key="GridCell.Tab.0.left/61.24.1219.776@61.24.1219.776" timestamp="1579942226796" />
-    <state width="673" height="227" key="GridCell.Tab.0.right" timestamp="1579942226797">
+    <state width="580" height="187" key="GridCell.Tab.0.left/61.24.1219.776@61.24.1219.776" timestamp="1579964879110" />
+    <state width="580" height="187" key="GridCell.Tab.0.right" timestamp="1579964879111">
       <screen x="61" y="24" width="1219" height="776" />
     </state>
     <state width="735" height="164" key="GridCell.Tab.0.right/61.24.1219.662@61.24.1219.662" timestamp="1579924068736" />
-    <state width="673" height="227" key="GridCell.Tab.0.right/61.24.1219.776@61.24.1219.776" timestamp="1579942226797" />
-    <state width="674" height="228" key="GridCell.Tab.1.bottom" timestamp="1579942226685">
+    <state width="580" height="187" key="GridCell.Tab.0.right/61.24.1219.776@61.24.1219.776" timestamp="1579964879111" />
+    <state width="663" height="227" key="GridCell.Tab.1.bottom" timestamp="1579964745059">
       <screen x="61" y="24" width="1219" height="776" />
     </state>
     <state width="736" height="176" key="GridCell.Tab.1.bottom/61.24.1219.662@61.24.1219.662" timestamp="1579924068430" />
-    <state width="674" height="228" key="GridCell.Tab.1.bottom/61.24.1219.776@61.24.1219.776" timestamp="1579942226685" />
-    <state width="674" height="228" key="GridCell.Tab.1.center" timestamp="1579942226684">
+    <state width="663" height="227" key="GridCell.Tab.1.bottom/61.24.1219.776@61.24.1219.776" timestamp="1579964745059" />
+    <state width="663" height="227" key="GridCell.Tab.1.center" timestamp="1579964745058">
       <screen x="61" y="24" width="1219" height="776" />
     </state>
     <state width="736" height="176" key="GridCell.Tab.1.center/61.24.1219.662@61.24.1219.662" timestamp="1579924068429" />
-    <state width="674" height="228" key="GridCell.Tab.1.center/61.24.1219.776@61.24.1219.776" timestamp="1579942226684" />
-    <state width="674" height="228" key="GridCell.Tab.1.left" timestamp="1579942226684">
+    <state width="663" height="227" key="GridCell.Tab.1.center/61.24.1219.776@61.24.1219.776" timestamp="1579964745058" />
+    <state width="663" height="227" key="GridCell.Tab.1.left" timestamp="1579964745058">
       <screen x="61" y="24" width="1219" height="776" />
     </state>
     <state width="736" height="176" key="GridCell.Tab.1.left/61.24.1219.662@61.24.1219.662" timestamp="1579924068428" />
-    <state width="674" height="228" key="GridCell.Tab.1.left/61.24.1219.776@61.24.1219.776" timestamp="1579942226684" />
-    <state width="674" height="228" key="GridCell.Tab.1.right" timestamp="1579942226684">
+    <state width="663" height="227" key="GridCell.Tab.1.left/61.24.1219.776@61.24.1219.776" timestamp="1579964745058" />
+    <state width="663" height="227" key="GridCell.Tab.1.right" timestamp="1579964745059">
       <screen x="61" y="24" width="1219" height="776" />
     </state>
     <state width="736" height="176" key="GridCell.Tab.1.right/61.24.1219.662@61.24.1219.662" timestamp="1579924068429" />
-    <state width="674" height="228" key="GridCell.Tab.1.right/61.24.1219.776@61.24.1219.776" timestamp="1579942226684" />
+    <state width="663" height="227" key="GridCell.Tab.1.right/61.24.1219.776@61.24.1219.776" timestamp="1579964745059" />
     <state x="447" y="123" key="RollbackChangesDialog" timestamp="1579595359505">
       <screen x="61" y="24" width="1219" height="776" />
     </state>
@@ -248,6 +248,16 @@
           <url>file://$PROJECT_DIR$/Task.cpp</url>
           <line>8</line>
           <option name="timeStamp" value="74" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/HttpData.cpp</url>
+          <line>99</line>
+          <option name="timeStamp" value="76" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/HttpData.cpp</url>
+          <line>195</line>
+          <option name="timeStamp" value="78" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

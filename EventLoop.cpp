@@ -7,6 +7,8 @@
 #include <sys/eventfd.h>
 #include "UtilFun.h"
 
+ssize_t writen(int fd, char *buff, size_t n);
+
 int createEventfd() {
     int evtfd = eventfd(0, EFD_NONBLOCK | EFD_CLOEXEC);
     if (evtfd < 0) {
@@ -18,7 +20,7 @@ int createEventfd() {
 
 void EventLoop::wakeup() {
     uint64_t one = 1;
-    ssize_t n = writen(event_fd_, (char*)(&one), sizeof one);
+    ssize_t n = writen2(event_fd_, (char*)(&one), sizeof one);
     if (n != sizeof one) {
         printf("wakeup a thread error\n");
     }
