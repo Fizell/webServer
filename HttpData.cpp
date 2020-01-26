@@ -520,9 +520,13 @@ AnalysisState HttpData::analysisRequest() {
 
         struct stat sbuf;
         if (stat(fileName_.c_str(), &sbuf) < 0) {
-            header.clear();
-            errorHandle(fd_, 404, "Not Found!");
-            return ANALYSIS_ERROR;
+            fileName_ = "index.html";
+            int src_fd = open(fileName_.c_str(), O_RDONLY, 0);
+            if (src_fd < 0) { {
+                    header.clear();
+                    errorHandle(fd_, 404, "Not Found!");
+                    return ANALYSIS_ERROR;
+            }
         }
         header += "Content-Type: " + filetype + "\r\n";
         header += "Content-Length: " + to_string(sbuf.st_size) + "\r\n";
@@ -533,11 +537,16 @@ AnalysisState HttpData::analysisRequest() {
 
         if (method_ == METHOD_HEAD) return ANALYSIS_SUCCESS;
 
-        int src_fd = open(fileName_.c_str(), O_RDONLY, 0);
+        src_fd = open(fileName_.c_str(), O_RDONLY, 0);
         if (src_fd < 0) {
-            out_buff.clear();
-            errorHandle(fd_, 404, "Not Found!");
-            return ANALYSIS_ERROR;
+            //out_buff.clear();
+            fileName_ = "index.html";
+            int src_fd = open(fileName_.c_str(), O_RDONLY, 0);
+            if (src_fd < 0) {
+                errorHandle(fd_, 404, "Not Found!");
+                return ANALYSIS_ERROR;
+            }
+
         }
         void *mmapRet = mmap(NULL, sbuf.st_size, PROT_READ, MAP_PRIVATE, src_fd, 0);
         close(src_fd);
