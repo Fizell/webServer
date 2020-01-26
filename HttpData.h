@@ -68,6 +68,7 @@ public:
     AnalysisState analysisRequest();
     HeaderState parseHeaders();
     URIState parseURI();
+    void getTime();
     Task *getTask() {return task_;}
 private:
     int fd_;

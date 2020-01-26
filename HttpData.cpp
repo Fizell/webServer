@@ -4,6 +4,7 @@
 
 #include <sys/epoll.h>
 #include "HttpData.h"
+#include <time.h>
 
 pthread_once_t MimeType::once_control = PTHREAD_ONCE_INIT;
 std::map<std::string, std::string> MimeType::mime;
@@ -142,6 +143,7 @@ void HttpData::readHandle() {
     } else {
         receive_buff_[n] = '\0';
         in_buff = string(receive_buff_);
+        printf("echo error");
         printf("receive msg: %s from [%s : %d]\n", receive_buff_,
                inet_ntop(AF_INET, &chiladdr.sin_addr.s_addr, ipbuf_tmp, sizeof(ipbuf_tmp)),
                ntohs(chiladdr.sin_port));
@@ -227,15 +229,15 @@ void HttpData::writeHandle() {
     bzero(&chiladdr, sizeof(chiladdr));
     socklen_t chillen = sizeof(chiladdr);
     getpeername(sockfd, (SA *) &chiladdr, &chillen);
-    if (writen(fd_, out_buff) < 0) {
-        ERR_MSG("write outbuff error");
-        error_ = true;
-    }
+    getTime();
     //write(sockfd, receive_buff_, n);
     printf("echo msg: %s to [%s : %d]\n", out_buff.c_str(),
            inet_ntop(AF_INET, &chiladdr.sin_addr.s_addr, ipbuf_tmp, sizeof(ipbuf_tmp)),
            ntohs(chiladdr.sin_port));
-
+    if (writen(fd_, out_buff) < 0) {
+        ERR_MSG("write outbuff error");
+        error_ = true;
+    }
     fflush(stdout);
 
     ev.data.fd = sockfd;
@@ -262,6 +264,9 @@ void HttpData::errorHandle(int fd, int err_num, string short_msg) {
     ;
     header_buff += "\r\n";
 
+    getTime();
+    printf("echo error\n");
+    fflush(stdout);
     sprintf(send_buff, "%s", header_buff.c_str());
     writen2(fd, send_buff, strlen(send_buff));
     sprintf(send_buff, "%s", body_buff.c_str());
@@ -510,7 +515,7 @@ AnalysisState HttpData::analysisRequest() {
         if (fileName_ == "favicon.ico") {
             header += "Content-Type: image/png\r\n";
             header += "Content-Length: " + to_string(sizeof favicon) + "\r\n";
-            header += "Server: LinYa's Web Server\r\n";
+            header += "Server: Server\r\n";
 
             header += "\r\n";
             out_buff += header;
@@ -530,7 +535,7 @@ AnalysisState HttpData::analysisRequest() {
         }
         header += "Content-Type: " + filetype + "\r\n";
         header += "Content-Length: " + to_string(sbuf.st_size) + "\r\n";
-        header += "Server: LinYa's Web Server\r\n";
+        header += "Server: Web Server\r\n";
         // 头部结束
         header += "\r\n";
         out_buff += header;
@@ -564,3 +569,19 @@ AnalysisState HttpData::analysisRequest() {
     }
     return ANALYSIS_ERROR;
 }
+void HttpData::getTime() {
+    time_t tt;
+    time( &tt );
+    tt = tt + 8*3600;  // transform the time zone
+    tm* t= gmtime( &tt );
+
+    printf("%d-%02d-%02d %02d:%02d:%02d\n",
+           t->tm_year + 1900,
+           t->tm_mon + 1,
+           t->tm_mday,
+           t->tm_hour,
+           t->tm_min,
+           t->tm_sec);
+    fflush(stdout);
+}
+

@@ -32,7 +32,7 @@ std::vector<Task *> Epoll::poll() {
     for (;;) {
         events_count=epoll_wait(epollfd_,events, MAX_EVENT, EPOLL_TIMEWAIT);
         if(events_count < 0) {
-            ERR_MSG("epoll_wait error");
+            //ERR_MSG("epoll_wait error");
             //exit(0);
             continue;
         }
