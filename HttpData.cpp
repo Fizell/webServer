@@ -101,7 +101,7 @@ void HttpData::readHandle() {
 
     char ipbuf_tmp[50];
     struct epoll_event ev;
-
+    error_ = false;
     ev.data.fd = fd_;
     ev.events = EPOLLIN | EPOLLONESHOT;
     epoll_ctl(task_->epoll_->epollfd_, EPOLL_CTL_MOD, fd_, &ev);
@@ -246,6 +246,7 @@ void HttpData::writeHandle() {
 
 void HttpData::errorHandle(int fd, int err_num, string short_msg) {
     short_msg = " " + short_msg;
+    error_ = true;
     char send_buff[4096];
     string body_buff, header_buff;
     body_buff += "<html><title>Error</title>";
@@ -521,8 +522,7 @@ AnalysisState HttpData::analysisRequest() {
         struct stat sbuf;
         if (stat(fileName_.c_str(), &sbuf) < 0) {
             fileName_ = "index.html";
-            int src_fd = open(fileName_.c_str(), O_RDONLY, 0);
-            if (src_fd < 0) { {
+            if (stat(fileName_.c_str(), &sbuf) < 0) {
                     header.clear();
                     errorHandle(fd_, 404, "Not Found!");
                     return ANALYSIS_ERROR;
@@ -537,11 +537,11 @@ AnalysisState HttpData::analysisRequest() {
 
         if (method_ == METHOD_HEAD) return ANALYSIS_SUCCESS;
 
-        src_fd = open(fileName_.c_str(), O_RDONLY, 0);
+        int src_fd = open(fileName_.c_str(), O_RDONLY, 0);
         if (src_fd < 0) {
             //out_buff.clear();
             fileName_ = "index.html";
-            int src_fd = open(fileName_.c_str(), O_RDONLY, 0);
+            src_fd = open(fileName_.c_str(), O_RDONLY, 0);
             if (src_fd < 0) {
                 errorHandle(fd_, 404, "Not Found!");
                 return ANALYSIS_ERROR;
