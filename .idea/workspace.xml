@@ -13,24 +13,14 @@
   <component name="ChangeListManager">
     <list default="true" id="ca483f4a-695e-4170-8d64-85524cf93c8d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Epoll.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Epoll.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Epoll.h" beforeDir="false" afterPath="$PROJECT_DIR$/Epoll.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EventLoop.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/EventLoop.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HttpData.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/HttpData.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HttpData.h" beforeDir="false" afterPath="$PROJECT_DIR$/HttpData.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Server.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server.h" beforeDir="false" afterPath="$PROJECT_DIR$/Server.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Task.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Task.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Task.h" beforeDir="false" afterPath="$PROJECT_DIR$/Task.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebLimit.h" beforeDir="false" afterPath="$PROJECT_DIR$/WebLimit.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/Epoll.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/Epoll.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/Server.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/Server.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/Task.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/Task.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/depend.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/main.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/web_server1_1" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/web_server1_1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +88,7 @@
       <workItem from="1579745907683" duration="18346000" />
       <workItem from="1579853589131" duration="6872000" />
       <workItem from="1579928736848" duration="27860000" />
-      <workItem from="1580292434941" duration="8351000" />
+      <workItem from="1580292434941" duration="12738000" />
     </task>
     <task id="LOCAL-00001" summary="add ThreadPool(semi-finished)">
       <created>1579591497492</created>
@@ -170,7 +160,14 @@
       <option name="project" value="LOCAL" />
       <updated>1580012548525</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="稳定版本, 优化了抗压性, 使用了指针指针进行内存管理">
+      <created>1580301236594</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1580301236594</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -186,17 +183,18 @@
     <MESSAGE value="-Add HttpTest" />
     <MESSAGE value="-add default page index.html" />
     <MESSAGE value="-Fixed some bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="-Fixed some bugs" />
+    <MESSAGE value="稳定版本, 优化了抗压性, 使用了指针指针进行内存管理" />
+    <option name="LAST_COMMIT_MESSAGE" value="稳定版本, 优化了抗压性, 使用了指针指针进行内存管理" />
   </component>
   <component name="WindowStateProjectService">
     <state x="210" y="59" key="#Notifications" timestamp="1579512186200">
       <screen x="61" y="24" width="1219" height="776" />
     </state>
     <state x="210" y="59" key="#Notifications/61.24.1219.776@61.24.1219.776" timestamp="1579512186200" />
-    <state x="240" y="24" key="CommitChangelistDialog2" timestamp="1580012548300">
+    <state x="240" y="24" key="CommitChangelistDialog2" timestamp="1580301235900">
       <screen x="61" y="24" width="1219" height="776" />
     </state>
-    <state x="240" y="24" key="CommitChangelistDialog2/61.24.1219.776@61.24.1219.776" timestamp="1580012548300" />
+    <state x="240" y="24" key="CommitChangelistDialog2/61.24.1219.776@61.24.1219.776" timestamp="1580301235900" />
     <state width="527" height="466" key="DebuggerActiveHint" timestamp="1580299439351">
       <screen x="61" y="24" width="1219" height="776" />
     </state>
@@ -205,46 +203,46 @@
       <screen x="61" y="24" width="1219" height="776" />
     </state>
     <state x="461" y="349" key="Github.CreateGistDialog/61.24.1219.776@61.24.1219.776" timestamp="1580293269045" />
-    <state width="1125" height="116" key="GridCell.Tab.0.bottom" timestamp="1580301083121">
+    <state width="1125" height="152" key="GridCell.Tab.0.bottom" timestamp="1580305085905">
       <screen x="61" y="24" width="1219" height="776" />
     </state>
     <state width="735" height="164" key="GridCell.Tab.0.bottom/61.24.1219.662@61.24.1219.662" timestamp="1579924068736" />
-    <state width="1125" height="116" key="GridCell.Tab.0.bottom/61.24.1219.776@61.24.1219.776" timestamp="1580301083121" />
-    <state width="1125" height="116" key="GridCell.Tab.0.center" timestamp="1580301083119">
+    <state width="1125" height="152" key="GridCell.Tab.0.bottom/61.24.1219.776@61.24.1219.776" timestamp="1580305085905" />
+    <state width="1125" height="152" key="GridCell.Tab.0.center" timestamp="1580305085904">
       <screen x="61" y="24" width="1219" height="776" />
     </state>
     <state width="735" height="164" key="GridCell.Tab.0.center/61.24.1219.662@61.24.1219.662" timestamp="1579924068735" />
-    <state width="1125" height="116" key="GridCell.Tab.0.center/61.24.1219.776@61.24.1219.776" timestamp="1580301083119" />
-    <state width="1125" height="116" key="GridCell.Tab.0.left" timestamp="1580301083118">
+    <state width="1125" height="152" key="GridCell.Tab.0.center/61.24.1219.776@61.24.1219.776" timestamp="1580305085904" />
+    <state width="1125" height="152" key="GridCell.Tab.0.left" timestamp="1580305085903">
       <screen x="61" y="24" width="1219" height="776" />
     </state>
     <state width="735" height="164" key="GridCell.Tab.0.left/61.24.1219.662@61.24.1219.662" timestamp="1579924068734" />
-    <state width="1125" height="116" key="GridCell.Tab.0.left/61.24.1219.776@61.24.1219.776" timestamp="1580301083118" />
-    <state width="1125" height="116" key="GridCell.Tab.0.right" timestamp="1580301083120">
+    <state width="1125" height="152" key="GridCell.Tab.0.left/61.24.1219.776@61.24.1219.776" timestamp="1580305085903" />
+    <state width="1125" height="152" key="GridCell.Tab.0.right" timestamp="1580305085905">
       <screen x="61" y="24" width="1219" height="776" />
     </state>
     <state width="735" height="164" key="GridCell.Tab.0.right/61.24.1219.662@61.24.1219.662" timestamp="1579924068736" />
-    <state width="1125" height="116" key="GridCell.Tab.0.right/61.24.1219.776@61.24.1219.776" timestamp="1580301083120" />
-    <state width="1125" height="181" key="GridCell.Tab.1.bottom" timestamp="1580300742726">
+    <state width="1125" height="152" key="GridCell.Tab.0.right/61.24.1219.776@61.24.1219.776" timestamp="1580305085905" />
+    <state width="1125" height="416" key="GridCell.Tab.1.bottom" timestamp="1580304619620">
       <screen x="61" y="24" width="1219" height="776" />
     </state>
     <state width="736" height="176" key="GridCell.Tab.1.bottom/61.24.1219.662@61.24.1219.662" timestamp="1579924068430" />
-    <state width="1125" height="181" key="GridCell.Tab.1.bottom/61.24.1219.776@61.24.1219.776" timestamp="1580300742726" />
-    <state width="1125" height="181" key="GridCell.Tab.1.center" timestamp="1580300742725">
+    <state width="1125" height="416" key="GridCell.Tab.1.bottom/61.24.1219.776@61.24.1219.776" timestamp="1580304619620" />
+    <state width="1125" height="416" key="GridCell.Tab.1.center" timestamp="1580304619619">
       <screen x="61" y="24" width="1219" height="776" />
     </state>
     <state width="736" height="176" key="GridCell.Tab.1.center/61.24.1219.662@61.24.1219.662" timestamp="1579924068429" />
-    <state width="1125" height="181" key="GridCell.Tab.1.center/61.24.1219.776@61.24.1219.776" timestamp="1580300742725" />
-    <state width="1125" height="181" key="GridCell.Tab.1.left" timestamp="1580300742725">
+    <state width="1125" height="416" key="GridCell.Tab.1.center/61.24.1219.776@61.24.1219.776" timestamp="1580304619619" />
+    <state width="1125" height="416" key="GridCell.Tab.1.left" timestamp="1580304619619">
       <screen x="61" y="24" width="1219" height="776" />
     </state>
     <state width="736" height="176" key="GridCell.Tab.1.left/61.24.1219.662@61.24.1219.662" timestamp="1579924068428" />
-    <state width="1125" height="181" key="GridCell.Tab.1.left/61.24.1219.776@61.24.1219.776" timestamp="1580300742725" />
-    <state width="1125" height="181" key="GridCell.Tab.1.right" timestamp="1580300742725">
+    <state width="1125" height="416" key="GridCell.Tab.1.left/61.24.1219.776@61.24.1219.776" timestamp="1580304619619" />
+    <state width="1125" height="416" key="GridCell.Tab.1.right" timestamp="1580304619620">
       <screen x="61" y="24" width="1219" height="776" />
     </state>
     <state width="736" height="176" key="GridCell.Tab.1.right/61.24.1219.662@61.24.1219.662" timestamp="1579924068429" />
-    <state width="1125" height="181" key="GridCell.Tab.1.right/61.24.1219.776@61.24.1219.776" timestamp="1580300742725" />
+    <state width="1125" height="416" key="GridCell.Tab.1.right/61.24.1219.776@61.24.1219.776" timestamp="1580304619620" />
     <state x="447" y="123" key="RollbackChangesDialog" timestamp="1579595359505">
       <screen x="61" y="24" width="1219" height="776" />
     </state>
@@ -290,12 +288,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/HttpData.cpp</url>
-          <line>530</line>
-          <option name="timeStamp" value="93" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/HttpData.cpp</url>
-          <line>279</line>
+          <line>278</line>
           <option name="timeStamp" value="94" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">

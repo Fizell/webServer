@@ -214,8 +214,8 @@ void HttpData::readHandle() {
         if(!error_)
             if (out_buff.size() > 0) {
                 writeHandle();
-                /*
                 fflush(stdout);
+                /*
                 ev.data.fd = sockfd;
                 ev.events = EPOLLOUT | EPOLLONESHOT;
                 epoll_ctl(task_->epoll_->epollfd_, EPOLL_CTL_MOD, sockfd, &ev);
@@ -236,7 +236,7 @@ void HttpData::writeHandle() {
     bzero(&chiladdr, sizeof(chiladdr));
     socklen_t chillen = sizeof(chiladdr);
     getpeername(sockfd, (SA *) &chiladdr, &chillen);
-    write(sockfd, receive_buff_, n);
+    //write(sockfd, receive_buff_, n);
     if(DEBUG) {
         getTime();
         printf("echo msg: %s to [%s : %d]\n", out_buff.c_str(),inet_ntop(AF_INET, &chiladdr.sin_addr.s_addr, ipbuf_tmp, sizeof(ipbuf_tmp)),ntohs(chiladdr.sin_port));
@@ -248,13 +248,12 @@ void HttpData::writeHandle() {
         error_ = true;
     }
     fflush(stdout);
-    close(fd_);
-    closed_ = true;
-    /*
+    //close(fd_);
+    //closed_ = true;
     ev.data.fd = sockfd;
     ev.events = EPOLLIN | EPOLLONESHOT;
     epoll_ctl(task_->epoll_->epollfd_, EPOLL_CTL_MOD, sockfd, &ev);
-    */
+
 
 
 }
@@ -283,8 +282,8 @@ void HttpData::errorHandle(int fd, int err_num, string short_msg) {
     writen2(fd, send_buff, strlen(send_buff));
     sprintf(send_buff, "%s", body_buff.c_str());
     writen2(fd, send_buff, strlen(send_buff));
-    close(fd_);
-    closed_ = true;
+    //close(fd_);
+    //closed_ = true;
 }
 
 void MimeType::init() {
@@ -302,6 +301,7 @@ void MimeType::init() {
     mime[".txt"] = "text/plain";
     mime[".mp3"] = "audio/mp3";
     mime[".css"] = "text/css";
+    mime[".js"] = "text/javascript";
     mime["default"] = "text/html";
 }
 
