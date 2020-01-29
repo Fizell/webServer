@@ -8,6 +8,7 @@
 #include "Task.h"
 #include "EventLoop.h"
 #include "ThreadPool.h"
+#include "MutexLock.h"
 
 class Task;
 class Server {
@@ -17,8 +18,6 @@ public:
     int startListen(int port);
     void start();
     void newConnHandle();
-    void readHandle();
-    void writeHandle();
     void test1();
     void test2();
     void test3();
@@ -30,6 +29,7 @@ private:
     char ipbuf_tmp_[50];
     int n;
     char buff[MAXLINE];
+    MutexLock mutex_;
 };
 
 

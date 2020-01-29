@@ -5,8 +5,9 @@
 #ifndef WEB_SERVER1_1_WEBLIMIT_H
 #define WEB_SERVER1_1_WEBLIMIT_H
 
+#define DEBUG 0
 #define MAXFDS 100000
-#define MAX_EVENT 40960
+#define MAX_EVENT 4096
 #define EPOLL_TIMEWAIT -1
 #define MAX_THREAD 4
 #define MAXLINE 4096

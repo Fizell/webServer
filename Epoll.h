@@ -10,7 +10,7 @@
 #include <vector>
 #include <sys/epoll.h>
 #include "WebLimit.h"
-
+#include "MutexLock.h"
 
 
 class Task;
@@ -28,10 +28,10 @@ public:
     int epollfd_;
     struct epoll_event events[MAX_EVENT];
     Task *fd_to_task_[MAXFDS];
-    HttpData *fd_to_http_[MAXFDS];
+    std::shared_ptr<HttpData>fd_to_http_[MAXFDS];
 
 private:
-
+    MutexLock mutex_;
 };
 
 

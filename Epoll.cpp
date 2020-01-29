@@ -7,7 +7,7 @@
 #include <unp.h>
 #include "WebLimit.h"
 #include "UtilFun.h"
-Epoll::Epoll() : epollfd_(epoll_create(MAXFDS)) {}
+Epoll::Epoll() : epollfd_(epoll_create(MAXFDS)), mutex_() {}
 Epoll::~Epoll() {
     printf("http free\n");
     fflush(stdout);
@@ -19,7 +19,7 @@ void Epoll::addEpoll(Task *task) {
     ev.data.fd = fd_;
     ev.events = EPOLLIN | EPOLLONESHOT;
     fd_to_task_[fd_] = task;
-    //fd_to_http_[fd_] = task->getHolder();
+    fd_to_http_[fd_] = task->getHolder();
     epoll_ctl(epollfd_, EPOLL_CTL_ADD, fd_, &ev);
 }
 
@@ -66,11 +66,13 @@ void Epoll::removeEpoll(Task *task) {
     event.data.fd = fd;
     event.events = EPOLLIN | EPOLLONESHOT;
     if (epoll_ctl(task->epoll_->epollfd_, EPOLL_CTL_DEL, fd, &event) < 0) {
-        ERR_MSG("epoll_del error");
-        exit(0);
+        //ERR_MSG("epoll_del error");
+        //exit(0);
     }
-    //delete fd_to_task_[fd];
+
+    fd_to_task_[fd]->getHolder().reset();
+    delete fd_to_task_[fd];
     fd_to_task_[fd] = NULL;
-    //delete fd_to_http_[fd];
-    //fd_to_http_[fd] = NULL;
+    fd_to_http_[fd].reset();
+    fd_to_http_[fd] = NULL;
 }

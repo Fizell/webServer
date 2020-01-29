@@ -17,7 +17,6 @@ class HttpData;
 class Task {
 public:
     Task(EventLoop *loop, int fd);
-    Task(int fd);
     ~Task();
     typedef std::function<void()> func;
 
@@ -40,14 +39,15 @@ public:
     bool isMainLoop() {return isMainLoop_;}
     void setMainLoop() {isMainLoop_ = true;}
 
-    void setHolder(HttpData *holder) { holder_ = holder; }
-    HttpData *getHolder() { return holder_; }
+    void setHolder(std::shared_ptr<HttpData> holder) { holder_ = holder; }
+    std::shared_ptr<HttpData> getHolder() { return holder_; }
 
 
 private:
+    std::shared_ptr<HttpData> holder_;
     EventLoop *loop_;
     bool isMainLoop_;
-    HttpData *holder_;
+
 };
 
 

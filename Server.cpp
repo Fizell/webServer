@@ -9,7 +9,7 @@
 #include <functional>
 #include "HttpData.h"
 
-Server::Server(EventLoop* loop, int port) : listen_fd(startListen(port)), threadPool_(new ThreadPool(loop_)), loop_(loop), task_(new Task(loop_, listen_fd)) {}
+Server::Server(EventLoop* loop, int port) : mutex_(), listen_fd(startListen(port)), threadPool_(new ThreadPool(loop_)), loop_(loop), task_(new Task(loop_, listen_fd)) {}
 Server::~Server() {}
 
 void Server::start() {
@@ -18,13 +18,16 @@ void Server::start() {
     task_->epoll_->addEpoll(task_);
     task_->setMainLoop();
     task_->setConnHandle(std::bind(&Server::newConnHandle, this));
-    task_->setReadHandle(std::bind(&Server::readHandle, this));
-    task_->setWriteHandle(std::bind(&Server::writeHandle, this));
 
     for(;;) {
         std::vector<Task *> req;
         req = task_->epoll_->poll();
-        for(auto &it : req) it->eventHandle();
+        for(auto &it : req) {
+            mutex_.lock();
+            it->eventHandle();
+            mutex_.unlock();
+        }
+
     }
 }
 
@@ -91,14 +94,14 @@ void Server::newConnHandle() {
     }
 
     EventLoop *loop = threadPool_->getNext();
-    HttpData *http(new HttpData(loop, connfd));
-    http->getTask()->setHolder(http);
-    loop->epoll_->addEpoll(http->getTask());
-    loop->wakeup();
+    //原先在http里面创建 task，但是这样子在压测中会造成初始化还没成功就进行到下一语句的情况
+    Task *task = new Task(loop, connfd);
+    std::shared_ptr<HttpData> http(new HttpData(loop, connfd, task));
+    //usleep(30);
+    task->setHolder(http);
+    if(DEBUG)
+        printf("New connect from %s port: %d\n",inet_ntop(AF_INET, &chiladdr.sin_addr.s_addr, ipbuf_tmp_, sizeof(ipbuf_tmp_)),ntohs(chiladdr.sin_port));
 
-    printf("New connect from %s port: %d\n",
-           inet_ntop(AF_INET, &chiladdr.sin_addr.s_addr, ipbuf_tmp_, sizeof(ipbuf_tmp_)),
-           ntohs(chiladdr.sin_port));
 
 
     /*
@@ -109,68 +112,3 @@ void Server::newConnHandle() {
      */
 }
 
-void Server::readHandle() {
-    struct sockaddr_in chiladdr;
-    int sockfd;
-
-    char ipbuf_tmp[50];
-    struct epoll_event ev;
-    if ((sockfd = task_->rfd_) < 0) {
-        ERR_MSG("fd_ error");
-        return;
-    }
-
-    bzero(&chiladdr, sizeof(chiladdr));
-    socklen_t chillen = sizeof(chiladdr);
-    getpeername(sockfd, (SA *) &chiladdr, &chillen);
-
-    if ((n = read(sockfd, buff, MAXLINE)) < 0) {
-        if (errno == ECONNRESET) {
-            bzero(&chiladdr, sizeof(chiladdr));
-            socklen_t chillen = sizeof(chiladdr);
-            getpeername(sockfd, (SA *) &chiladdr, &chillen);
-            close(sockfd);
-            printf("close connect [%s : %d]\n",
-                   inet_ntop(AF_INET, &chiladdr.sin_addr.s_addr, ipbuf_tmp, sizeof(ipbuf_tmp)),
-                   ntohs(chiladdr.sin_port));
-            //task_->epoll_->removeEpoll(task_);
-        } else
-            ERR_MSG("read error");
-    } else if (n == 0) {
-
-        close(sockfd);
-        printf("close connect [%s : %d]\n",
-               inet_ntop(AF_INET, &chiladdr.sin_addr.s_addr, ipbuf_tmp, sizeof(ipbuf_tmp)),
-               ntohs(chiladdr.sin_port));
-        //task_->epoll_->removeEpoll(task_);
-    } else {
-        buff[n] = '\0';
-        printf("receive msg: %s from [%s : %d]\n", buff,
-               inet_ntop(AF_INET, &chiladdr.sin_addr.s_addr, ipbuf_tmp, sizeof(ipbuf_tmp)),
-               ntohs(chiladdr.sin_port));
-    }
-
-/*
-    ev.data.fd = sockfd;
-    ev.events = EPOLLOUT;
-    epoll_ctl(task_->epoll_->epollfd_, EPOLL_CTL_MOD, sockfd, &ev);
-    */
-}
-
-void Server::writeHandle() {
-    int sockfd;
-    char ipbuf_tmp[50];
-    struct epoll_event ev;
-    struct sockaddr_in chiladdr;
-    sockfd = task_->rfd_;
-    bzero(&chiladdr, sizeof(chiladdr));
-    socklen_t chillen = sizeof(chiladdr);
-    getpeername(sockfd, (SA *) &chiladdr, &chillen);
-    write(sockfd, buff, n);
-    printf("echo msg: %s to [%s : %d]\n", buff,
-           inet_ntop(AF_INET, &chiladdr.sin_addr.s_addr, ipbuf_tmp, sizeof(ipbuf_tmp)),
-           ntohs(chiladdr.sin_port));
-    ev.data.fd = sockfd;
-    ev.events = EPOLLIN;
-    epoll_ctl(task_->epoll_->epollfd_, EPOLL_CTL_MOD, sockfd, &ev);
-}

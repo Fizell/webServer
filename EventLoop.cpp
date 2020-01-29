@@ -25,7 +25,8 @@ void EventLoop::wakeup() {
         printf("wakeup a thread error\n");
     }
     else
-        printf("wakeup a thread\n");
+        if(DEBUG)
+            printf("wakeup a thread\n");
     fflush(stdout);
 }
 
@@ -48,7 +49,8 @@ void EventLoop::readHandle() {
         //looping_ = true;
     }
     else {
-        printf("wakeup success\n");
+        if(DEBUG)
+            printf("wakeup success\n");
         looping_ = true;
     }
     fflush(stdout);

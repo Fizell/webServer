@@ -60,7 +60,7 @@ enum HttpVersion { HTTP_10 = 1, HTTP_11 };
 
 class HttpData {
 public:
-    HttpData(EventLoop *loop, int fd);
+    HttpData(EventLoop *loop, int fd, Task *task);
     ~HttpData();
     void readHandle();
     void writeHandle();
@@ -70,14 +70,16 @@ public:
     URIState parseURI();
     void getTime();
     Task *getTask() {return task_;}
+    bool isClose() {return closed_;}
+
 private:
+    Task *task_;
+    EventLoop *loop_;
     int fd_;
+    bool closed_;
     char ipbuf_tmp_[50];
     int n;
     char receive_buff_[MAXLINE];
-    char echo_buff_[MAXLINE];
-    Task *task_;
-    EventLoop *loop_;
     int nowReadPos_;
     ParseState hState_;
     std::string fileName_;

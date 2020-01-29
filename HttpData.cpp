@@ -74,29 +74,37 @@ char favicon[555] = {
         'N',    'D',    '\xAE', 'B',    '\x60', '\x82',
 };
 
-HttpData::HttpData(EventLoop *loop, int fd) :
+HttpData::HttpData(EventLoop *loop, int fd, Task *task) :
+    task_(task),
     fd_(fd),
     n(0),
-    task_(new Task(loop, fd_)),
     loop_(loop),
-    state_(STATE_PARSE_URI)
+    state_(STATE_PARSE_URI),
+    closed_(false),
+    method_(METHOD_GET),
+    HTTPVersion_(HTTP_11),
+    nowReadPos_(0),
+    hState_(H_START)
 {
-
     //task_->setConnHandle(std::bind(&HttpData::newConnHandle, this));
     task_->setReadHandle(std::bind(&HttpData::readHandle, this));
     task_->setWriteHandle(std::bind(&HttpData::writeHandle, this));
     task_->epoll_ = loop->epoll_;
     //loop->epoll_->removeEpoll(task);
     loop->epoll_->addEpoll(task_);
+    loop->wakeup();
 }
 
 HttpData::~HttpData() {
-    printf("http free\n");
-    fflush(stdout);
-    //delete task_;
+    if(DEBUG) {
+        printf("http free\n");
+        fflush(stdout);
+    }
+
 }
 
 void HttpData::readHandle() {
+
     struct sockaddr_in chiladdr;
     int sockfd;
 
@@ -111,7 +119,6 @@ void HttpData::readHandle() {
         ERR_MSG("fd_ error");
         return;
     }
-
     bzero(&chiladdr, sizeof(chiladdr));
     socklen_t chillen = sizeof(chiladdr);
     getpeername(sockfd, (SA *) &chiladdr, &chillen);
@@ -121,32 +128,29 @@ void HttpData::readHandle() {
             bzero(&chiladdr, sizeof(chiladdr));
             socklen_t chillen = sizeof(chiladdr);
             getpeername(sockfd, (SA *) &chiladdr, &chillen);
-            loop_->epoll_->removeEpoll(task_);
+            //loop_->epoll_->removeEpoll(task_);
             //delete loop_;
-            close(sockfd);
-            printf("close connect [%s : %d]\n",
-                   inet_ntop(AF_INET, &chiladdr.sin_addr.s_addr, ipbuf_tmp, sizeof(ipbuf_tmp)),
-                   ntohs(chiladdr.sin_port));
-            delete this;
-            return;
+            close(fd_);
+            if(DEBUG)
+                printf("close connect [%s : %d]\n",inet_ntop(AF_INET, &chiladdr.sin_addr.s_addr, ipbuf_tmp, sizeof(ipbuf_tmp)),ntohs(chiladdr.sin_port));
+            closed_ = true;
         } else
             ERR_MSG("read error");
     } else if (n == 0) {
-        loop_->epoll_->removeEpoll(task_);
+        //loop_->epoll_->removeEpoll(task_);
         //delete loop_;
-        close(sockfd);
-        printf("close connect [%s : %d]\n",
-               inet_ntop(AF_INET, &chiladdr.sin_addr.s_addr, ipbuf_tmp, sizeof(ipbuf_tmp)),
-               ntohs(chiladdr.sin_port));
-        delete this;
-        return;
+        close(fd_);
+        if(DEBUG)
+            printf("close connect [%s : %d]\n",inet_ntop(AF_INET, &chiladdr.sin_addr.s_addr, ipbuf_tmp, sizeof(ipbuf_tmp)),ntohs(chiladdr.sin_port));
+        closed_ = true;
     } else {
         receive_buff_[n] = '\0';
         in_buff = string(receive_buff_);
-        printf("echo error");
-        printf("receive msg: %s from [%s : %d]\n", receive_buff_,
-               inet_ntop(AF_INET, &chiladdr.sin_addr.s_addr, ipbuf_tmp, sizeof(ipbuf_tmp)),
-               ntohs(chiladdr.sin_port));
+        state_ = STATE_PARSE_URI;
+        if(DEBUG) {
+            getTime();
+            printf("receive msg: %s from [%s : %d]\n", receive_buff_,inet_ntop(AF_INET, &chiladdr.sin_addr.s_addr, ipbuf_tmp, sizeof(ipbuf_tmp)),ntohs(chiladdr.sin_port));
+        }
         if(state_ == STATE_PARSE_URI) {
             URIState flag = this->parseURI();
             if (flag == PARSE_URI_AGAIN) {
@@ -209,10 +213,13 @@ void HttpData::readHandle() {
         }
         if(!error_)
             if (out_buff.size() > 0) {
+                writeHandle();
+                /*
                 fflush(stdout);
                 ev.data.fd = sockfd;
                 ev.events = EPOLLOUT | EPOLLONESHOT;
                 epoll_ctl(task_->epoll_->epollfd_, EPOLL_CTL_MOD, sockfd, &ev);
+                 */
             }
     }
 
@@ -229,20 +236,26 @@ void HttpData::writeHandle() {
     bzero(&chiladdr, sizeof(chiladdr));
     socklen_t chillen = sizeof(chiladdr);
     getpeername(sockfd, (SA *) &chiladdr, &chillen);
-    getTime();
-    //write(sockfd, receive_buff_, n);
-    printf("echo msg: %s to [%s : %d]\n", out_buff.c_str(),
-           inet_ntop(AF_INET, &chiladdr.sin_addr.s_addr, ipbuf_tmp, sizeof(ipbuf_tmp)),
-           ntohs(chiladdr.sin_port));
+    write(sockfd, receive_buff_, n);
+    if(DEBUG) {
+        getTime();
+        printf("echo msg: %s to [%s : %d]\n", out_buff.c_str(),inet_ntop(AF_INET, &chiladdr.sin_addr.s_addr, ipbuf_tmp, sizeof(ipbuf_tmp)),ntohs(chiladdr.sin_port));
+
+    }
+
     if (writen(fd_, out_buff) < 0) {
         ERR_MSG("write outbuff error");
         error_ = true;
     }
     fflush(stdout);
-
+    close(fd_);
+    closed_ = true;
+    /*
     ev.data.fd = sockfd;
     ev.events = EPOLLIN | EPOLLONESHOT;
     epoll_ctl(task_->epoll_->epollfd_, EPOLL_CTL_MOD, sockfd, &ev);
+    */
+
 
 }
 
@@ -263,7 +276,6 @@ void HttpData::errorHandle(int fd, int err_num, string short_msg) {
     header_buff += "Server: WebServer\r\n";
     ;
     header_buff += "\r\n";
-
     getTime();
     printf("echo error\n");
     fflush(stdout);
@@ -271,6 +283,8 @@ void HttpData::errorHandle(int fd, int err_num, string short_msg) {
     writen2(fd, send_buff, strlen(send_buff));
     sprintf(send_buff, "%s", body_buff.c_str());
     writen2(fd, send_buff, strlen(send_buff));
+    close(fd_);
+    closed_ = true;
 }
 
 void MimeType::init() {
@@ -287,6 +301,7 @@ void MimeType::init() {
     mime[".png"] = "image/png";
     mime[".txt"] = "text/plain";
     mime[".mp3"] = "audio/mp3";
+    mime[".css"] = "text/css";
     mime["default"] = "text/html";
 }
 
@@ -380,6 +395,7 @@ HeaderState HttpData::parseHeaders() {
     int key_start = -1, key_end = -1, value_start = -1, value_end = -1;
     int now_read_line_begin = 0;
     bool notFinish = true;
+    hState_ = H_START;
     size_t i = 0;
     for (; i < str.size() && notFinish; ++i) {
         switch (hState_) {
@@ -393,10 +409,10 @@ HeaderState HttpData::parseHeaders() {
             case H_KEY: {
                 if (str[i] == ':') {
                     key_end = i;
-                    if (key_end - key_start <= 0) return PARSE_HEADER_ERROR;
+                    if (key_end - key_start <= 0)
+                        return PARSE_HEADER_ERROR;
                     hState_ = H_COLON;
-                } else if (str[i] == '\n' || str[i] == '\r')
-                    return PARSE_HEADER_ERROR;
+                }
                 break;
             }
             case H_COLON: {
