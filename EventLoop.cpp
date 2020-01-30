@@ -18,6 +18,7 @@ int createEventfd() {
     return evtfd;
 }
 
+//向event_fd_发送一个信号使线程从epoll_wait状态激活，同时在server中更新了新的epoll，以执行新的事件
 void EventLoop::wakeup() {
     uint64_t one = 1;
     ssize_t n = writen2(event_fd_, (char*)(&one), sizeof one);
@@ -58,7 +59,7 @@ void EventLoop::readHandle() {
 
     //wait_Task_->epoll_->addEpoll(EPOLLIN);
 }
-
+//事件循环
 void EventLoop::loop() {
     //epoll_->addEpoll(wait_Task_);
     while(!quit_) {

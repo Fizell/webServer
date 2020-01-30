@@ -10,6 +10,8 @@ Thread::~Thread() {
     if (start_ && !join_) pthread_detach(tid_);
 }
 
+//为了保存线程名字等信息,由于线程必须传入静态的函数，静态函数不属于对象所以对象无法保存信息
+// ,在此另辟蹊径，使用一个单独struct集合保存必要信息
 struct Data {
     pthread_t *tid;
     pid_t  *pid;

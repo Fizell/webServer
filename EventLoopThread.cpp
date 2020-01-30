@@ -18,7 +18,6 @@ EventLoopThread::~EventLoopThread() {}
 
 void EventLoopThread::run() {
 
-    //usleep(1000000);
     mutex_.lock();
     while(!flag_);
     usleep(100);

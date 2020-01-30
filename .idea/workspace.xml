@@ -12,12 +12,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ca483f4a-695e-4170-8d64-85524cf93c8d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HttpData.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/HttpData.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebLimit.h" beforeDir="false" afterPath="$PROJECT_DIR$/WebLimit.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Epoll.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Epoll.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Epoll.h" beforeDir="false" afterPath="$PROJECT_DIR$/Epoll.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EventLoop.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/EventLoop.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EventLoopThread.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/EventLoopThread.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HttpData.h" beforeDir="false" afterPath="$PROJECT_DIR$/HttpData.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Task.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Thread.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Thread.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ThreadPool.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ThreadPool.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/Epoll.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/Epoll.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/Server.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/Server.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/Task.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/Task.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/link.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/main.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/web_server1_1" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/web_server1_1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
@@ -50,7 +60,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="settings.github" />
+    <property name="settings.editor.selected.configurable" value="CPPToolchains" />
   </component>
   <component name="RunManager">
     <configuration name="web_server1_1" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="web_server1_1" TARGET_NAME="web_server1_1" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="web_server1_1" RUN_TARGET_NAME="web_server1_1">
@@ -88,7 +98,7 @@
       <workItem from="1579745907683" duration="18346000" />
       <workItem from="1579853589131" duration="6872000" />
       <workItem from="1579928736848" duration="27860000" />
-      <workItem from="1580292434941" duration="12738000" />
+      <workItem from="1580292434941" duration="18274000" />
     </task>
     <task id="LOCAL-00001" summary="add ThreadPool(semi-finished)">
       <created>1579591497492</created>
@@ -167,7 +177,14 @@
       <option name="project" value="LOCAL" />
       <updated>1580301236594</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="稳定版本 解决了一些bug">
+      <created>1580305599863</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1580305599863</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,17 +201,18 @@
     <MESSAGE value="-add default page index.html" />
     <MESSAGE value="-Fixed some bugs" />
     <MESSAGE value="稳定版本, 优化了抗压性, 使用了指针指针进行内存管理" />
-    <option name="LAST_COMMIT_MESSAGE" value="稳定版本, 优化了抗压性, 使用了指针指针进行内存管理" />
+    <MESSAGE value="稳定版本 解决了一些bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="稳定版本 解决了一些bug" />
   </component>
   <component name="WindowStateProjectService">
     <state x="210" y="59" key="#Notifications" timestamp="1579512186200">
       <screen x="61" y="24" width="1219" height="776" />
     </state>
     <state x="210" y="59" key="#Notifications/61.24.1219.776@61.24.1219.776" timestamp="1579512186200" />
-    <state x="240" y="24" key="CommitChangelistDialog2" timestamp="1580301235900">
+    <state x="240" y="24" key="CommitChangelistDialog2" timestamp="1580360972733">
       <screen x="61" y="24" width="1219" height="776" />
     </state>
-    <state x="240" y="24" key="CommitChangelistDialog2/61.24.1219.776@61.24.1219.776" timestamp="1580301235900" />
+    <state x="240" y="24" key="CommitChangelistDialog2/61.24.1219.776@61.24.1219.776" timestamp="1580360972733" />
     <state width="527" height="466" key="DebuggerActiveHint" timestamp="1580299439351">
       <screen x="61" y="24" width="1219" height="776" />
     </state>
@@ -203,26 +221,26 @@
       <screen x="61" y="24" width="1219" height="776" />
     </state>
     <state x="461" y="349" key="Github.CreateGistDialog/61.24.1219.776@61.24.1219.776" timestamp="1580293269045" />
-    <state width="1125" height="152" key="GridCell.Tab.0.bottom" timestamp="1580305085905">
+    <state width="1125" height="2" key="GridCell.Tab.0.bottom" timestamp="1580356807812">
       <screen x="61" y="24" width="1219" height="776" />
     </state>
     <state width="735" height="164" key="GridCell.Tab.0.bottom/61.24.1219.662@61.24.1219.662" timestamp="1579924068736" />
-    <state width="1125" height="152" key="GridCell.Tab.0.bottom/61.24.1219.776@61.24.1219.776" timestamp="1580305085905" />
-    <state width="1125" height="152" key="GridCell.Tab.0.center" timestamp="1580305085904">
+    <state width="1125" height="2" key="GridCell.Tab.0.bottom/61.24.1219.776@61.24.1219.776" timestamp="1580356807812" />
+    <state width="1125" height="2" key="GridCell.Tab.0.center" timestamp="1580356807807">
       <screen x="61" y="24" width="1219" height="776" />
     </state>
     <state width="735" height="164" key="GridCell.Tab.0.center/61.24.1219.662@61.24.1219.662" timestamp="1579924068735" />
-    <state width="1125" height="152" key="GridCell.Tab.0.center/61.24.1219.776@61.24.1219.776" timestamp="1580305085904" />
-    <state width="1125" height="152" key="GridCell.Tab.0.left" timestamp="1580305085903">
+    <state width="1125" height="2" key="GridCell.Tab.0.center/61.24.1219.776@61.24.1219.776" timestamp="1580356807807" />
+    <state width="1125" height="2" key="GridCell.Tab.0.left" timestamp="1580356807804">
       <screen x="61" y="24" width="1219" height="776" />
     </state>
     <state width="735" height="164" key="GridCell.Tab.0.left/61.24.1219.662@61.24.1219.662" timestamp="1579924068734" />
-    <state width="1125" height="152" key="GridCell.Tab.0.left/61.24.1219.776@61.24.1219.776" timestamp="1580305085903" />
-    <state width="1125" height="152" key="GridCell.Tab.0.right" timestamp="1580305085905">
+    <state width="1125" height="2" key="GridCell.Tab.0.left/61.24.1219.776@61.24.1219.776" timestamp="1580356807804" />
+    <state width="1125" height="2" key="GridCell.Tab.0.right" timestamp="1580356807808">
       <screen x="61" y="24" width="1219" height="776" />
     </state>
     <state width="735" height="164" key="GridCell.Tab.0.right/61.24.1219.662@61.24.1219.662" timestamp="1579924068736" />
-    <state width="1125" height="152" key="GridCell.Tab.0.right/61.24.1219.776@61.24.1219.776" timestamp="1580305085905" />
+    <state width="1125" height="2" key="GridCell.Tab.0.right/61.24.1219.776@61.24.1219.776" timestamp="1580356807808" />
     <state width="1125" height="416" key="GridCell.Tab.1.bottom" timestamp="1580304619620">
       <screen x="61" y="24" width="1219" height="776" />
     </state>
@@ -247,10 +265,10 @@
       <screen x="61" y="24" width="1219" height="776" />
     </state>
     <state x="447" y="123" key="RollbackChangesDialog/61.24.1219.776@61.24.1219.776" timestamp="1579595359505" />
-    <state x="176" y="33" key="SettingsEditor" timestamp="1579512245491">
+    <state x="176" y="33" key="SettingsEditor" timestamp="1580359498572">
       <screen x="61" y="24" width="1219" height="776" />
     </state>
-    <state x="176" y="33" key="SettingsEditor/61.24.1219.776@61.24.1219.776" timestamp="1579512245491" />
+    <state x="176" y="33" key="SettingsEditor/61.24.1219.776@61.24.1219.776" timestamp="1580359498572" />
     <state x="360" y="206" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1580012131543">
       <screen x="61" y="24" width="1219" height="776" />
     </state>

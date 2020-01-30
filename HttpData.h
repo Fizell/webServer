@@ -68,6 +68,7 @@ public:
     AnalysisState analysisRequest();
     HeaderState parseHeaders();
     URIState parseURI();
+    //打印时间戳
     void getTime();
     Task *getTask() {return task_;}
     bool isClose() {return closed_;}
@@ -77,7 +78,6 @@ private:
     EventLoop *loop_;
     int fd_;
     bool closed_;
-    char ipbuf_tmp_[50];
     int n;
     char receive_buff_[MAXLINE];
     int nowReadPos_;

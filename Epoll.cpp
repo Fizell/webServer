@@ -12,7 +12,7 @@ Epoll::~Epoll() {
     printf("http free\n");
     fflush(stdout);
 }
-
+//新连接增加epoll关注事件
 void Epoll::addEpoll(Task *task) {
     fd_ = task->getFd();
     struct epoll_event ev;
@@ -22,30 +22,18 @@ void Epoll::addEpoll(Task *task) {
     fd_to_http_[fd_] = task->getHolder();
     epoll_ctl(epollfd_, EPOLL_CTL_ADD, fd_, &ev);
 }
-
+//等待事件,获取任务
 std::vector<Task *> Epoll::poll() {
-    int events_count, connfd, sockfd, n;
-    struct epoll_event ev;
-    struct sockaddr_in chiladdr;
-    char ipbuf_tmp[50];
-    char buff[MAXLINE];
+    int events_count;
     for (;;) {
         events_count=epoll_wait(epollfd_,events, MAX_EVENT, EPOLL_TIMEWAIT);
         if(events_count < 0) {
-            //ERR_MSG("epoll_wait error");
-            //exit(0);
             continue;
         }
         else if(events_count == 0)
             continue;
         std::vector<Task *> req;
         for(int i = 0; i< events_count; i++) {
-            /*
-            if(events[i].data.fd != fd_) {
-                events[i].events = 0;
-                continue;
-            }
-             */
             if(fd_to_task_[events[i].data.fd] == NULL)
                 continue;
             Task *cur_req = fd_to_task_[events[i].data.fd];
@@ -60,19 +48,20 @@ std::vector<Task *> Epoll::poll() {
     }
 }
 
+//删除的epoll关注事件，释放内存
 void Epoll::removeEpoll(Task *task) {
     int fd = task->getFd();
     struct epoll_event event;
     event.data.fd = fd;
     event.events = EPOLLIN | EPOLLONESHOT;
     if (epoll_ctl(task->epoll_->epollfd_, EPOLL_CTL_DEL, fd, &event) < 0) {
-        //ERR_MSG("epoll_del error");
-        //exit(0);
+        //
     }
-
+    //reset Task的引用
     fd_to_task_[fd]->getHolder().reset();
     delete fd_to_task_[fd];
     fd_to_task_[fd] = NULL;
+    //reset Epoll的引用
     fd_to_http_[fd].reset();
     fd_to_http_[fd] = NULL;
 }

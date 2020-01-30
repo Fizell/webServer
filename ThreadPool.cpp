@@ -21,7 +21,7 @@ void ThreadPool::creatThreadPool() {
     }
     printf("ThreadPool create success\n");
 }
-
+//获取下一个线程事件循环指针，每一个连接都使用下一个线程，线程负载均衡
 EventLoop *ThreadPool::getNext() {
     EventLoop *loop = baseLoop_;
     if (!loops_.empty()) {
