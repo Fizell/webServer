@@ -14,10 +14,6 @@
     <list default="true" id="ca483f4a-695e-4170-8d64-85524cf93c8d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HttpData.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/HttpData.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/web_server1_1.dir/main.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/web_server1_1" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/web_server1_1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +81,7 @@
       <workItem from="1579745907683" duration="18346000" />
       <workItem from="1579853589131" duration="6872000" />
       <workItem from="1579928736848" duration="27860000" />
-      <workItem from="1580292434941" duration="20858000" />
+      <workItem from="1580292434941" duration="21376000" />
     </task>
     <task id="LOCAL-00001" summary="add ThreadPool(semi-finished)">
       <created>1579591497492</created>
@@ -178,7 +174,14 @@
       <option name="project" value="LOCAL" />
       <updated>1580361047560</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="增加了favicon.ico">
+      <created>1580548092109</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1580548092109</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -197,17 +200,18 @@
     <MESSAGE value="稳定版本, 优化了抗压性, 使用了指针指针进行内存管理" />
     <MESSAGE value="稳定版本 解决了一些bug" />
     <MESSAGE value="增加了注释和README" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加了注释和README" />
+    <MESSAGE value="增加了favicon.ico" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加了favicon.ico" />
   </component>
   <component name="WindowStateProjectService">
     <state x="210" y="59" key="#Notifications" timestamp="1579512186200">
       <screen x="61" y="24" width="1219" height="776" />
     </state>
     <state x="210" y="59" key="#Notifications/61.24.1219.776@61.24.1219.776" timestamp="1579512186200" />
-    <state x="240" y="24" key="CommitChangelistDialog2" timestamp="1580361047242">
+    <state x="240" y="24" key="CommitChangelistDialog2" timestamp="1580548091937">
       <screen x="61" y="24" width="1219" height="776" />
     </state>
-    <state x="240" y="24" key="CommitChangelistDialog2/61.24.1219.776@61.24.1219.776" timestamp="1580361047242" />
+    <state x="240" y="24" key="CommitChangelistDialog2/61.24.1219.776@61.24.1219.776" timestamp="1580548091937" />
     <state width="527" height="466" key="DebuggerActiveHint" timestamp="1580546803840">
       <screen x="61" y="24" width="1219" height="776" />
     </state>

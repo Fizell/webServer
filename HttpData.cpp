@@ -610,7 +610,6 @@ AnalysisState HttpData::analysisRequest() {
         }
         char *src_addr = static_cast<char *>(mmapRet);
         out_buff += string(src_addr, src_addr + sbuf.st_size);
-        ;
         munmap(mmapRet, sbuf.st_size);
         return ANALYSIS_SUCCESS;
     }
