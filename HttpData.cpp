@@ -529,14 +529,45 @@ AnalysisState HttpData::analysisRequest() {
             return ANALYSIS_SUCCESS;
         }
         if (fileName_ == "favicon.ico") {
+            fileName_ = "favicon.png";
             header += "Content-Type: image/png\r\n";
-            header += "Content-Length: " + to_string(sizeof favicon) + "\r\n";
+
+
+            struct stat sbuf;
+            //默认图标
+            if (stat(fileName_.c_str(), &sbuf) < 0) {
+                header += "Content-Length: " + to_string(sizeof favicon) + "\r\n";
+                header += "Server: Server\r\n";
+
+                header += "\r\n";
+                out_buff += header;
+                out_buff += string(favicon, favicon + sizeof favicon);
+
+                return ANALYSIS_SUCCESS;
+            }
+            int src_fd = open(fileName_.c_str(), O_RDONLY, 0);
+            //默认图标
+            if (src_fd < 0) {
+
+                header += "Content-Length: " + to_string(sizeof favicon) + "\r\n";
+                header += "Server: Server\r\n";
+
+                header += "\r\n";
+                out_buff += header;
+                out_buff += string(favicon, favicon + sizeof favicon);
+
+                return ANALYSIS_SUCCESS;
+            }
+            void *mmapRet = mmap(NULL, sbuf.st_size, PROT_READ, MAP_PRIVATE, src_fd, 0);
+            close(src_fd);
+            char *src_addr = static_cast<char *>(mmapRet);
+            header += "Content-Length: " + to_string(sbuf.st_size) + "\r\n";
             header += "Server: Server\r\n";
 
             header += "\r\n";
             out_buff += header;
-            out_buff += string(favicon, favicon + sizeof favicon);
-            ;
+            out_buff += string(src_addr, src_addr + sbuf.st_size);
+            munmap(mmapRet, sbuf.st_size);
             return ANALYSIS_SUCCESS;
         }
 

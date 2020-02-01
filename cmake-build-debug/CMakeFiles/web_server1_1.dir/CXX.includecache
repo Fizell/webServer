@@ -20,18 +20,6 @@ cstdint
 MutexLock.h
 /home/parallels/CLionProjects/web_server1.1/MutexLock.h
 
-/home/parallels/CLionProjects/web_server1.1/Epoll.cpp
-Epoll.h
-/home/parallels/CLionProjects/web_server1.1/Epoll.h
-sys/epoll.h
--
-unp.h
--
-WebLimit.h
-/home/parallels/CLionProjects/web_server1.1/WebLimit.h
-UtilFun.h
-/home/parallels/CLionProjects/web_server1.1/UtilFun.h
-
 /home/parallels/CLionProjects/web_server1.1/Epoll.h
 Task.h
 /home/parallels/CLionProjects/web_server1.1/Task.h
@@ -46,16 +34,6 @@ WebLimit.h
 MutexLock.h
 /home/parallels/CLionProjects/web_server1.1/MutexLock.h
 
-/home/parallels/CLionProjects/web_server1.1/EventLoop.cpp
-EventLoop.h
-/home/parallels/CLionProjects/web_server1.1/EventLoop.h
-UtilFun.h
-/home/parallels/CLionProjects/web_server1.1/UtilFun.h
-sys/eventfd.h
--
-UtilFun.h
-/home/parallels/CLionProjects/web_server1.1/UtilFun.h
-
 /home/parallels/CLionProjects/web_server1.1/EventLoop.h
 memory
 -
@@ -65,12 +43,6 @@ Task.h
 /home/parallels/CLionProjects/web_server1.1/Task.h
 Epoll.h
 /home/parallels/CLionProjects/web_server1.1/Epoll.h
-
-/home/parallels/CLionProjects/web_server1.1/EventLoopThread.cpp
-unistd.h
--
-EventLoopThread.h
-/home/parallels/CLionProjects/web_server1.1/EventLoopThread.h
 
 /home/parallels/CLionProjects/web_server1.1/EventLoopThread.h
 Thread.h
@@ -82,57 +54,11 @@ EventLoop.h
 Condition.h
 /home/parallels/CLionProjects/web_server1.1/Condition.h
 
-/home/parallels/CLionProjects/web_server1.1/HttpData.cpp
-sys/epoll.h
--
-HttpData.h
-/home/parallels/CLionProjects/web_server1.1/HttpData.h
-time.h
--
-
-/home/parallels/CLionProjects/web_server1.1/HttpData.h
-UtilFun.h
-/home/parallels/CLionProjects/web_server1.1/UtilFun.h
-WebLimit.h
-/home/parallels/CLionProjects/web_server1.1/WebLimit.h
-Task.h
-/home/parallels/CLionProjects/web_server1.1/Task.h
-unp.h
--
-unistd.h
--
-functional
--
-string
--
-UtilFun.h
-/home/parallels/CLionProjects/web_server1.1/UtilFun.h
-map
--
-sys/mman.h
--
-sys/stat.h
--
-
 /home/parallels/CLionProjects/web_server1.1/MutexLock.h
 pthread.h
 -
 cstdio
 -
-
-/home/parallels/CLionProjects/web_server1.1/Server.cpp
-Server.h
-/home/parallels/CLionProjects/web_server1.1/Server.h
-UtilFun.h
-/home/parallels/CLionProjects/web_server1.1/UtilFun.h
-unp.h
--
-WebLimit.h
-/home/parallels/CLionProjects/web_server1.1/WebLimit.h
-functional
--
-HttpData.h
-/home/parallels/CLionProjects/web_server1.1/HttpData.h
 
 /home/parallels/CLionProjects/web_server1.1/Server.h
 Task.h
@@ -144,12 +70,6 @@ ThreadPool.h
 MutexLock.h
 /home/parallels/CLionProjects/web_server1.1/MutexLock.h
 
-/home/parallels/CLionProjects/web_server1.1/Task.cpp
-Task.h
-/home/parallels/CLionProjects/web_server1.1/Task.h
-HttpData.h
-/home/parallels/CLionProjects/web_server1.1/HttpData.h
-
 /home/parallels/CLionProjects/web_server1.1/Task.h
 stdint.h
 -
@@ -159,12 +79,6 @@ functional
 -
 EventLoop.h
 /home/parallels/CLionProjects/web_server1.1/EventLoop.h
-
-/home/parallels/CLionProjects/web_server1.1/Thread.cpp
-unistd.h
--
-Thread.h
-/home/parallels/CLionProjects/web_server1.1/Thread.h
 
 /home/parallels/CLionProjects/web_server1.1/Thread.h
 sys/types.h
@@ -178,12 +92,6 @@ pthread.h
 Condition.h
 /home/parallels/CLionProjects/web_server1.1/Condition.h
 
-/home/parallels/CLionProjects/web_server1.1/ThreadPool.cpp
-unistd.h
--
-ThreadPool.h
-/home/parallels/CLionProjects/web_server1.1/ThreadPool.h
-
 /home/parallels/CLionProjects/web_server1.1/ThreadPool.h
 vector
 -
@@ -192,17 +100,11 @@ EventLoopThread.h
 WebLimit.h
 /home/parallels/CLionProjects/web_server1.1/WebLimit.h
 
-/home/parallels/CLionProjects/web_server1.1/UtilFun.h
-errno.h
--
-string
--
-sys/socket.h
--
-unistd.h
--
-WebLimit.h
 /home/parallels/CLionProjects/web_server1.1/WebLimit.h
 
-/home/parallels/CLionProjects/web_server1.1/WebLimit.h
+/home/parallels/CLionProjects/web_server1.1/main.cpp
+iostream
+-
+Server.h
+/home/parallels/CLionProjects/web_server1.1/Server.h
 
