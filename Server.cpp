@@ -99,8 +99,9 @@ void Server::newConnHandle() {
     std::shared_ptr<HttpData> http(new HttpData(loop, connfd, task));
     //usleep(30);
     task->setHolder(http);
-    if(DEBUG)
-        printf("New connect from %s port: %d\n",inet_ntop(AF_INET, &chiladdr.sin_addr.s_addr, ipbuf_tmp_, sizeof(ipbuf_tmp_)),ntohs(chiladdr.sin_port));
+    loop->epoll_->addTimer(http);
+    http->getTime();
+    printf("New connect from %s port: %d\n",inet_ntop(AF_INET, &chiladdr.sin_addr.s_addr, ipbuf_tmp_, sizeof(ipbuf_tmp_)),ntohs(chiladdr.sin_port));
 
 
 

@@ -7,11 +7,14 @@
 #include "UtilFun.h"
 #include "WebLimit.h"
 #include "Task.h"
-#include <unp.h>
 #include <unistd.h>
+#include <string.h>
 #include <functional>
 #include <string>
+#include <fcntl.h>
 #include "UtilFun.h"
+#include "Timer.h"
+
 #include <map>
 #include <sys/mman.h>
 #include <sys/stat.h>
@@ -58,13 +61,18 @@ enum HttpMethod { METHOD_POST = 1, METHOD_GET, METHOD_HEAD };
 
 enum HttpVersion { HTTP_10 = 1, HTTP_11 };
 
+class Task;
+class EventLoop;
+class Timer;
 class HttpData {
 public:
     HttpData(EventLoop *loop, int fd, Task *task);
     ~HttpData();
     void readHandle();
     void writeHandle();
+    void quit();
     void errorHandle(int fd, int err_num, string short_msg);
+    void linkTimer(std::shared_ptr<Timer> timer) {timer_ = timer;}
     AnalysisState analysisRequest();
     HeaderState parseHeaders();
     URIState parseURI();
@@ -90,6 +98,7 @@ private:
     string in_buff;
     string out_buff;
     ProcessState state_;
+    std::shared_ptr<Timer> timer_;
 };
 
 class MimeType {

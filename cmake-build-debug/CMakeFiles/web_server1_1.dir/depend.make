@@ -4,16 +4,20 @@
 CMakeFiles/web_server1_1.dir/Epoll.cpp.o: ../Epoll.cpp
 CMakeFiles/web_server1_1.dir/Epoll.cpp.o: ../Epoll.h
 CMakeFiles/web_server1_1.dir/Epoll.cpp.o: ../EventLoop.h
+CMakeFiles/web_server1_1.dir/Epoll.cpp.o: ../HttpData.h
 CMakeFiles/web_server1_1.dir/Epoll.cpp.o: ../MutexLock.h
 CMakeFiles/web_server1_1.dir/Epoll.cpp.o: ../Task.h
+CMakeFiles/web_server1_1.dir/Epoll.cpp.o: ../Timer.h
 CMakeFiles/web_server1_1.dir/Epoll.cpp.o: ../UtilFun.h
 CMakeFiles/web_server1_1.dir/Epoll.cpp.o: ../WebLimit.h
 
 CMakeFiles/web_server1_1.dir/EventLoop.cpp.o: ../Epoll.h
 CMakeFiles/web_server1_1.dir/EventLoop.cpp.o: ../EventLoop.cpp
 CMakeFiles/web_server1_1.dir/EventLoop.cpp.o: ../EventLoop.h
+CMakeFiles/web_server1_1.dir/EventLoop.cpp.o: ../HttpData.h
 CMakeFiles/web_server1_1.dir/EventLoop.cpp.o: ../MutexLock.h
 CMakeFiles/web_server1_1.dir/EventLoop.cpp.o: ../Task.h
+CMakeFiles/web_server1_1.dir/EventLoop.cpp.o: ../Timer.h
 CMakeFiles/web_server1_1.dir/EventLoop.cpp.o: ../UtilFun.h
 CMakeFiles/web_server1_1.dir/EventLoop.cpp.o: ../WebLimit.h
 
@@ -22,9 +26,12 @@ CMakeFiles/web_server1_1.dir/EventLoopThread.cpp.o: ../Epoll.h
 CMakeFiles/web_server1_1.dir/EventLoopThread.cpp.o: ../EventLoop.h
 CMakeFiles/web_server1_1.dir/EventLoopThread.cpp.o: ../EventLoopThread.cpp
 CMakeFiles/web_server1_1.dir/EventLoopThread.cpp.o: ../EventLoopThread.h
+CMakeFiles/web_server1_1.dir/EventLoopThread.cpp.o: ../HttpData.h
 CMakeFiles/web_server1_1.dir/EventLoopThread.cpp.o: ../MutexLock.h
 CMakeFiles/web_server1_1.dir/EventLoopThread.cpp.o: ../Task.h
 CMakeFiles/web_server1_1.dir/EventLoopThread.cpp.o: ../Thread.h
+CMakeFiles/web_server1_1.dir/EventLoopThread.cpp.o: ../Timer.h
+CMakeFiles/web_server1_1.dir/EventLoopThread.cpp.o: ../UtilFun.h
 CMakeFiles/web_server1_1.dir/EventLoopThread.cpp.o: ../WebLimit.h
 
 CMakeFiles/web_server1_1.dir/HttpData.cpp.o: ../Epoll.h
@@ -33,6 +40,7 @@ CMakeFiles/web_server1_1.dir/HttpData.cpp.o: ../HttpData.cpp
 CMakeFiles/web_server1_1.dir/HttpData.cpp.o: ../HttpData.h
 CMakeFiles/web_server1_1.dir/HttpData.cpp.o: ../MutexLock.h
 CMakeFiles/web_server1_1.dir/HttpData.cpp.o: ../Task.h
+CMakeFiles/web_server1_1.dir/HttpData.cpp.o: ../Timer.h
 CMakeFiles/web_server1_1.dir/HttpData.cpp.o: ../UtilFun.h
 CMakeFiles/web_server1_1.dir/HttpData.cpp.o: ../WebLimit.h
 
@@ -47,6 +55,7 @@ CMakeFiles/web_server1_1.dir/Server.cpp.o: ../Server.h
 CMakeFiles/web_server1_1.dir/Server.cpp.o: ../Task.h
 CMakeFiles/web_server1_1.dir/Server.cpp.o: ../Thread.h
 CMakeFiles/web_server1_1.dir/Server.cpp.o: ../ThreadPool.h
+CMakeFiles/web_server1_1.dir/Server.cpp.o: ../Timer.h
 CMakeFiles/web_server1_1.dir/Server.cpp.o: ../UtilFun.h
 CMakeFiles/web_server1_1.dir/Server.cpp.o: ../WebLimit.h
 
@@ -56,6 +65,7 @@ CMakeFiles/web_server1_1.dir/Task.cpp.o: ../HttpData.h
 CMakeFiles/web_server1_1.dir/Task.cpp.o: ../MutexLock.h
 CMakeFiles/web_server1_1.dir/Task.cpp.o: ../Task.cpp
 CMakeFiles/web_server1_1.dir/Task.cpp.o: ../Task.h
+CMakeFiles/web_server1_1.dir/Task.cpp.o: ../Timer.h
 CMakeFiles/web_server1_1.dir/Task.cpp.o: ../UtilFun.h
 CMakeFiles/web_server1_1.dir/Task.cpp.o: ../WebLimit.h
 
@@ -68,12 +78,25 @@ CMakeFiles/web_server1_1.dir/ThreadPool.cpp.o: ../Condition.h
 CMakeFiles/web_server1_1.dir/ThreadPool.cpp.o: ../Epoll.h
 CMakeFiles/web_server1_1.dir/ThreadPool.cpp.o: ../EventLoop.h
 CMakeFiles/web_server1_1.dir/ThreadPool.cpp.o: ../EventLoopThread.h
+CMakeFiles/web_server1_1.dir/ThreadPool.cpp.o: ../HttpData.h
 CMakeFiles/web_server1_1.dir/ThreadPool.cpp.o: ../MutexLock.h
 CMakeFiles/web_server1_1.dir/ThreadPool.cpp.o: ../Task.h
 CMakeFiles/web_server1_1.dir/ThreadPool.cpp.o: ../Thread.h
 CMakeFiles/web_server1_1.dir/ThreadPool.cpp.o: ../ThreadPool.cpp
 CMakeFiles/web_server1_1.dir/ThreadPool.cpp.o: ../ThreadPool.h
+CMakeFiles/web_server1_1.dir/ThreadPool.cpp.o: ../Timer.h
+CMakeFiles/web_server1_1.dir/ThreadPool.cpp.o: ../UtilFun.h
 CMakeFiles/web_server1_1.dir/ThreadPool.cpp.o: ../WebLimit.h
+
+CMakeFiles/web_server1_1.dir/Timer.cpp.o: ../Epoll.h
+CMakeFiles/web_server1_1.dir/Timer.cpp.o: ../EventLoop.h
+CMakeFiles/web_server1_1.dir/Timer.cpp.o: ../HttpData.h
+CMakeFiles/web_server1_1.dir/Timer.cpp.o: ../MutexLock.h
+CMakeFiles/web_server1_1.dir/Timer.cpp.o: ../Task.h
+CMakeFiles/web_server1_1.dir/Timer.cpp.o: ../Timer.cpp
+CMakeFiles/web_server1_1.dir/Timer.cpp.o: ../Timer.h
+CMakeFiles/web_server1_1.dir/Timer.cpp.o: ../UtilFun.h
+CMakeFiles/web_server1_1.dir/Timer.cpp.o: ../WebLimit.h
 
 CMakeFiles/web_server1_1.dir/UtilFun.cpp.o: ../UtilFun.cpp
 CMakeFiles/web_server1_1.dir/UtilFun.cpp.o: ../UtilFun.h
@@ -83,11 +106,14 @@ CMakeFiles/web_server1_1.dir/main.cpp.o: ../Condition.h
 CMakeFiles/web_server1_1.dir/main.cpp.o: ../Epoll.h
 CMakeFiles/web_server1_1.dir/main.cpp.o: ../EventLoop.h
 CMakeFiles/web_server1_1.dir/main.cpp.o: ../EventLoopThread.h
+CMakeFiles/web_server1_1.dir/main.cpp.o: ../HttpData.h
 CMakeFiles/web_server1_1.dir/main.cpp.o: ../MutexLock.h
 CMakeFiles/web_server1_1.dir/main.cpp.o: ../Server.h
 CMakeFiles/web_server1_1.dir/main.cpp.o: ../Task.h
 CMakeFiles/web_server1_1.dir/main.cpp.o: ../Thread.h
 CMakeFiles/web_server1_1.dir/main.cpp.o: ../ThreadPool.h
+CMakeFiles/web_server1_1.dir/main.cpp.o: ../Timer.h
+CMakeFiles/web_server1_1.dir/main.cpp.o: ../UtilFun.h
 CMakeFiles/web_server1_1.dir/main.cpp.o: ../WebLimit.h
 CMakeFiles/web_server1_1.dir/main.cpp.o: ../main.cpp
 

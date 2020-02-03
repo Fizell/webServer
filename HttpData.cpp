@@ -5,6 +5,11 @@
 #include <sys/epoll.h>
 #include "HttpData.h"
 #include <time.h>
+#include <cstring>
+#include <arpa/inet.h>
+
+
+
 
 pthread_once_t MimeType::once_control = PTHREAD_ONCE_INIT;
 std::map<std::string, std::string> MimeType::mime;
@@ -100,11 +105,17 @@ HttpData::~HttpData() {
         printf("http free\n");
         fflush(stdout);
     }
-
+    if(fd_ != 0)
+        close(fd_);
+    timer_->setQuit();
+    timer_.reset();
 }
 
+void HttpData::quit() {
+    timer_->setQuit();
+    //close(fd_);
+}
 void HttpData::readHandle() {
-
     struct sockaddr_in chiladdr;
     int sockfd;
 
@@ -121,16 +132,18 @@ void HttpData::readHandle() {
     }
     bzero(&chiladdr, sizeof(chiladdr));
     socklen_t chillen = sizeof(chiladdr);
-    getpeername(sockfd, (SA *) &chiladdr, &chillen);
+    getpeername(sockfd, (sockaddr *) &chiladdr, &chillen);
 
     if ((n = read(sockfd, receive_buff_, MAXLINE)) < 0) {
         if (errno == ECONNRESET) {
             bzero(&chiladdr, sizeof(chiladdr));
             socklen_t chillen = sizeof(chiladdr);
-            getpeername(sockfd, (SA *) &chiladdr, &chillen);
+            getpeername(sockfd, (sockaddr *) &chiladdr, &chillen);
             //loop_->epoll_->removeEpoll(task_);
             //delete loop_;
+            quit();
             close(fd_);
+            fd_ = 0;
             if(DEBUG)
                 printf("close connect [%s : %d]\n",inet_ntop(AF_INET, &chiladdr.sin_addr.s_addr, ipbuf_tmp, sizeof(ipbuf_tmp)),ntohs(chiladdr.sin_port));
             closed_ = true;
@@ -139,7 +152,9 @@ void HttpData::readHandle() {
     } else if (n == 0) {
         //loop_->epoll_->removeEpoll(task_);
         //delete loop_;
+        quit();
         close(fd_);
+        fd_ = 0;
         if(DEBUG)
             printf("close connect [%s : %d]\n",inet_ntop(AF_INET, &chiladdr.sin_addr.s_addr, ipbuf_tmp, sizeof(ipbuf_tmp)),ntohs(chiladdr.sin_port));
         closed_ = true;
@@ -235,7 +250,7 @@ void HttpData::writeHandle() {
     sockfd = fd_;
     bzero(&chiladdr, sizeof(chiladdr));
     socklen_t chillen = sizeof(chiladdr);
-    getpeername(sockfd, (SA *) &chiladdr, &chillen);
+    getpeername(sockfd, (sockaddr *) &chiladdr, &chillen);
     //write(sockfd, receive_buff_, n);
     if(DEBUG) {
         getTime();
@@ -253,9 +268,13 @@ void HttpData::writeHandle() {
     ev.data.fd = sockfd;
     ev.events = EPOLLIN | EPOLLONESHOT;
     epoll_ctl(task_->epoll_->epollfd_, EPOLL_CTL_MOD, sockfd, &ev);
-
-
-
+    //更新活跃定时器
+    //由于并发量大的时候，每一个请求都更新时间是严重的性能瓶颈，
+    // 所以不更新，但是想了有一个办法是设置一个标志变量，
+    // 如果在超时时间段内有请求就设置标志，只记录一个请求，
+    // 在时间到达的时候去判断这个标记变量，如果设置了的话就重新开始计时，
+    // 但是这种计时方法不精确，所以直接不更新时间吧，超时客户端也可以重新连接。
+    //timer_->updateTime();
 }
 
 void HttpData::errorHandle(int fd, int err_num, string short_msg) {

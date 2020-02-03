@@ -34,6 +34,9 @@ void Task::eventHandle() {
     fflush(stdout);
     //关闭连接
     if(getHolder())
-        if(getHolder()->isClose())
+        if(getHolder()->isClose()) {
+            getHolder()->quit();
             epoll_->removeEpoll(this);
+        }
+
 }

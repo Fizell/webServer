@@ -339,6 +339,33 @@ ThreadPool.cpp.s:
 	$(MAKE) -f CMakeFiles/web_server1_1.dir/build.make CMakeFiles/web_server1_1.dir/ThreadPool.cpp.s
 .PHONY : ThreadPool.cpp.s
 
+Timer.o: Timer.cpp.o
+
+.PHONY : Timer.o
+
+# target to build an object file
+Timer.cpp.o:
+	$(MAKE) -f CMakeFiles/web_server1_1.dir/build.make CMakeFiles/web_server1_1.dir/Timer.cpp.o
+.PHONY : Timer.cpp.o
+
+Timer.i: Timer.cpp.i
+
+.PHONY : Timer.i
+
+# target to preprocess a source file
+Timer.cpp.i:
+	$(MAKE) -f CMakeFiles/web_server1_1.dir/build.make CMakeFiles/web_server1_1.dir/Timer.cpp.i
+.PHONY : Timer.cpp.i
+
+Timer.s: Timer.cpp.s
+
+.PHONY : Timer.s
+
+# target to generate assembly for a file
+Timer.cpp.s:
+	$(MAKE) -f CMakeFiles/web_server1_1.dir/build.make CMakeFiles/web_server1_1.dir/Timer.cpp.s
+.PHONY : Timer.cpp.s
+
 UtilFun.o: UtilFun.cpp.o
 
 .PHONY : UtilFun.o
@@ -426,6 +453,9 @@ help:
 	@echo "... ThreadPool.o"
 	@echo "... ThreadPool.i"
 	@echo "... ThreadPool.s"
+	@echo "... Timer.o"
+	@echo "... Timer.i"
+	@echo "... Timer.s"
 	@echo "... UtilFun.o"
 	@echo "... UtilFun.i"
 	@echo "... UtilFun.s"

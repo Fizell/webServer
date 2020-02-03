@@ -8,7 +8,7 @@
 #define DEBUG 1
 #define MAXFDS 100000
 #define MAX_EVENT 4096
-#define EPOLL_TIMEWAIT -1
+#define EPOLL_TIMEWAIT 20000
 #define MAX_THREAD 4
 #define MAXLINE 4096
 #define LISTENQ 1024

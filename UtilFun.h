@@ -3,7 +3,6 @@
 //
 
 #include <errno.h>
-
 #include <string>
 #include <sys/socket.h>
 #include <unistd.h>

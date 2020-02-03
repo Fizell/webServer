@@ -138,6 +138,12 @@
 		<Unit filename="/home/parallels/CLionProjects/web_server1.1/ThreadPool.h">
 			<Option target="web_server1_1"/>
 		</Unit>
+		<Unit filename="/home/parallels/CLionProjects/web_server1.1/Timer.cpp">
+			<Option target="web_server1_1"/>
+		</Unit>
+		<Unit filename="/home/parallels/CLionProjects/web_server1.1/Timer.h">
+			<Option target="web_server1_1"/>
+		</Unit>
 		<Unit filename="/home/parallels/CLionProjects/web_server1.1/UtilFun.cpp">
 			<Option target="web_server1_1"/>
 		</Unit>

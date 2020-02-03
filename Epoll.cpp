@@ -7,7 +7,8 @@
 #include <unp.h>
 #include "WebLimit.h"
 #include "UtilFun.h"
-Epoll::Epoll() : epollfd_(epoll_create(MAXFDS)), mutex_() {}
+
+Epoll::Epoll() : epollfd_(epoll_create(MAXFDS)), mutex_(), timer_manager_(new TimerManager(this)) {}
 Epoll::~Epoll() {
     printf("http free\n");
     fflush(stdout);
@@ -30,8 +31,10 @@ std::vector<Task *> Epoll::poll() {
         if(events_count < 0) {
             continue;
         }
-        else if(events_count == 0)
-            continue;
+        else if(events_count == 0) {
+            //continue;
+        }
+
         std::vector<Task *> req;
         for(int i = 0; i< events_count; i++) {
             if(fd_to_task_[events[i].data.fd] == NULL)
@@ -65,3 +68,7 @@ void Epoll::removeEpoll(Task *task) {
     fd_to_http_[fd].reset();
     fd_to_http_[fd] = NULL;
 }
+
+void Epoll::handleTimer() {timer_manager_->handleCheckTimer();}
+
+void Epoll::addTimer(std::shared_ptr<HttpData> http) {timer_manager_->addTimer(http);}

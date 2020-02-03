@@ -66,6 +66,7 @@ void EventLoop::loop() {
         fflush(stdout);
         std::vector<Task *> req = epoll_->poll();
         for(auto &it : req) it->eventHandle();
+        epoll_->handleTimer();
     }
 
 

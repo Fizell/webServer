@@ -11,10 +11,12 @@
 #include <sys/epoll.h>
 #include "WebLimit.h"
 #include "MutexLock.h"
-
+#include "Timer.h"
 
 class Task;
 class HttpData;
+class Timer;
+class TimerManager;
 class Epoll {
 public:
     Epoll();
@@ -22,7 +24,8 @@ public:
     std::vector<Task *> poll();
     void addEpoll(Task *task);
     void removeEpoll(Task *task);
-
+    void handleTimer();
+    void addTimer(std::shared_ptr<HttpData> http);
     int fd_;
     int epollfd_;
     struct epoll_event events[MAX_EVENT];
@@ -32,6 +35,7 @@ public:
     std::shared_ptr<HttpData>fd_to_http_[MAXFDS];
 
 private:
+    TimerManager *timer_manager_;
     MutexLock mutex_;
 };
 

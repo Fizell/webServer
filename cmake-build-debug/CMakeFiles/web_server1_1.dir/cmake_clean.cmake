@@ -7,6 +7,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/web_server1_1.dir/Task.cpp.o"
   "CMakeFiles/web_server1_1.dir/Thread.cpp.o"
   "CMakeFiles/web_server1_1.dir/ThreadPool.cpp.o"
+  "CMakeFiles/web_server1_1.dir/Timer.cpp.o"
   "CMakeFiles/web_server1_1.dir/UtilFun.cpp.o"
   "CMakeFiles/web_server1_1.dir/main.cpp.o"
   "web_server1_1"
