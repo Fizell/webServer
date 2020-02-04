@@ -24,7 +24,8 @@ make
 ./web_server1.1
 ```
 
-- 初始端口为8881
+- 端口配置在main.cpp
+- 各项服务器配置在WebLimit.h
 - 默认页面为build目录的index.html(手动添加)
 
 ### 主要技术：
