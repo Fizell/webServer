@@ -72,7 +72,7 @@ public:
     void writeHandle();
     void quit();
     void errorHandle(int fd, int err_num, string short_msg);
-    void linkTimer(std::shared_ptr<Timer> timer) {timer_ = timer;}
+    void linkTimer(std::weak_ptr<Timer> timer) {timer_ = timer;}
     AnalysisState analysisRequest();
     HeaderState parseHeaders();
     URIState parseURI();
@@ -98,7 +98,7 @@ private:
     string in_buff;
     string out_buff;
     ProcessState state_;
-    std::shared_ptr<Timer> timer_;
+    std::weak_ptr<Timer> timer_;
 };
 
 class MimeType {

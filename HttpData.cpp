@@ -107,12 +107,13 @@ HttpData::~HttpData() {
     }
     if(fd_ != 0)
         close(fd_);
-    timer_->setQuit();
+    //timer_->setQuit();
     timer_.reset();
 }
 
 void HttpData::quit() {
-    timer_->setQuit();
+    if(timer_.lock())
+        timer_.lock()->setQuit();
     //close(fd_);
 }
 void HttpData::readHandle() {
@@ -141,6 +142,7 @@ void HttpData::readHandle() {
             getpeername(sockfd, (sockaddr *) &chiladdr, &chillen);
             //loop_->epoll_->removeEpoll(task_);
             //delete loop_;
+
             quit();
             close(fd_);
             fd_ = 0;
@@ -152,8 +154,8 @@ void HttpData::readHandle() {
     } else if (n == 0) {
         //loop_->epoll_->removeEpoll(task_);
         //delete loop_;
-        quit();
         close(fd_);
+        quit();
         fd_ = 0;
         if(DEBUG)
             printf("close connect [%s : %d]\n",inet_ntop(AF_INET, &chiladdr.sin_addr.s_addr, ipbuf_tmp, sizeof(ipbuf_tmp)),ntohs(chiladdr.sin_port));

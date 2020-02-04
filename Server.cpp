@@ -97,9 +97,9 @@ void Server::newConnHandle() {
     //原先在http里面创建 task，但是这样子在压测中会造成初始化还没成功就进行到下一语句的情况
     Task *task = new Task(loop, connfd);
     std::shared_ptr<HttpData> http(new HttpData(loop, connfd, task));
+    loop->epoll_->addTimer(http);
     //usleep(30);
     task->setHolder(http);
-    loop->epoll_->addTimer(http);
     http->getTime();
     printf("New connect from %s port: %d\n",inet_ntop(AF_INET, &chiladdr.sin_addr.s_addr, ipbuf_tmp_, sizeof(ipbuf_tmp_)),ntohs(chiladdr.sin_port));
 
