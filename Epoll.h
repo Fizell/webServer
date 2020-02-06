@@ -21,16 +21,16 @@ class Epoll {
 public:
     Epoll();
     ~Epoll();
-    std::vector<Task *> poll();
-    void addEpoll(Task *task);
-    void removeEpoll(Task *task);
+    std::vector<std::shared_ptr<Task> > poll();
+    void addEpoll(std::shared_ptr<Task> task);
+    void removeEpoll(std::shared_ptr<Task> task);
     void handleTimer();
-    void addTimer(Task *task);
+    void addTimer(std::shared_ptr<Task> task);
     int fd_;
     int epollfd_;
     struct epoll_event events[MAX_EVENT];
     //主要为了epoll的循环可以取得事件对应的task，以执行task中回调函数
-    Task *fd_to_task_[MAXFDS];
+    std::shared_ptr<Task> fd_to_task_[MAXFDS];
     //主要为了epoll的循环可以取得事件对应的http，目前主要是关闭连接使用
     std::shared_ptr<HttpData>fd_to_http_[MAXFDS];
 

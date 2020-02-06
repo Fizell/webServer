@@ -21,7 +21,7 @@ public:
     void wakeup();
 
     int event_fd_;
-    Task *wait_Task_;
+    std::shared_ptr<Task> wait_Task_;
     Epoll *epoll_;
     bool looping_;
     bool quit_;

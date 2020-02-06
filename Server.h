@@ -24,7 +24,7 @@ public:
 private:
     int listen_fd;
     EventLoop *loop_;
-    Task *task_;
+    std::shared_ptr<Task> task_;
     ThreadPool *threadPool_;
     char ipbuf_tmp_[50];
     int n;

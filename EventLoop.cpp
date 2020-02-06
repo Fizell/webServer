@@ -64,7 +64,7 @@ void EventLoop::loop() {
     //epoll_->addEpoll(wait_Task_);
     while(!quit_) {
         fflush(stdout);
-        std::vector<Task *> req = epoll_->poll();
+        std::vector<std::shared_ptr<Task> > req = epoll_->poll();
         for(auto &it : req) it->eventHandle();
         epoll_->handleTimer();
     }

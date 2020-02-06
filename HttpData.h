@@ -66,7 +66,7 @@ class EventLoop;
 class Timer;
 class HttpData {
 public:
-    HttpData(EventLoop *loop, int fd, Task *task);
+    HttpData(EventLoop *loop, int fd, std::shared_ptr<Task> task);
     ~HttpData();
     void readHandle();
     void writeHandle();
@@ -78,11 +78,11 @@ public:
     URIState parseURI();
     //打印时间戳
     void getTime();
-    Task *getTask() {return task_;}
+    std::shared_ptr<Task> getTask() {return task_;}
     bool isClose() {return closed_;}
 
 private:
-    Task *task_;
+    std::shared_ptr<Task> task_;
     EventLoop *loop_;
     int fd_;
     bool closed_;
@@ -99,6 +99,7 @@ private:
     string out_buff;
     ProcessState state_;
     std::weak_ptr<Timer> timer_;
+    MutexLock mutex_;
 };
 
 class MimeType {

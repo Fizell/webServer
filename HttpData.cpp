@@ -79,7 +79,7 @@ char favicon[555] = {
         'N',    'D',    '\xAE', 'B',    '\x60', '\x82',
 };
 
-HttpData::HttpData(EventLoop *loop, int fd, Task *task) :
+HttpData::HttpData(EventLoop *loop, int fd, std::shared_ptr<Task> task) :
     task_(task),
     fd_(fd),
     n(0),
@@ -89,7 +89,8 @@ HttpData::HttpData(EventLoop *loop, int fd, Task *task) :
     method_(METHOD_GET),
     HTTPVersion_(HTTP_11),
     nowReadPos_(0),
-    hState_(H_START)
+    hState_(H_START),
+    mutex_()
 {
     //task_->setConnHandle(std::bind(&HttpData::newConnHandle, this));
     task_->setReadHandle(std::bind(&HttpData::readHandle, this));
@@ -106,16 +107,19 @@ HttpData::~HttpData() {
     }
     if(fd_ != 0)
         close(fd_);
-    //delete task_;
+    task_.reset();
     //timer_->setQuit();
     //timer_.reset();
 }
 
 void HttpData::quit() {
+    mutex_.lock();
     if(timer_.lock())
         timer_.lock()->setQuit();
     loop_->epoll_->removeEpoll(task_);
+    closed_ = true;
     //close(fd_);
+    mutex_.unlock();
 }
 void HttpData::readHandle() {
     struct sockaddr_in chiladdr;
@@ -271,6 +275,12 @@ void HttpData::writeHandle() {
     ev.data.fd = sockfd;
     ev.events = EPOLLIN | EPOLLONESHOT;
     epoll_ctl(task_->epoll_->epollfd_, EPOLL_CTL_MOD, sockfd, &ev);
+    //短连接
+/*
+    quit();
+    close(fd_);
+    fd_ = 0;
+*/
     //更新活跃定时器
     //由于并发量大的时候，每一个请求都更新时间是严重的性能瓶颈，
     // 所以不更新，但是想了有一个办法是设置一个标志变量，

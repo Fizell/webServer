@@ -14,7 +14,7 @@ Epoll::~Epoll() {
     fflush(stdout);
 }
 //新连接增加epoll关注事件
-void Epoll::addEpoll(Task *task) {
+void Epoll::addEpoll(std::shared_ptr<Task> task) {
     mutex_.lock();
     int fd = task->getFd();
     struct epoll_event ev;
@@ -27,7 +27,7 @@ void Epoll::addEpoll(Task *task) {
     mutex_.unlock();
 }
 //等待事件,获取任务
-std::vector<Task *> Epoll::poll() {
+std::vector<std::shared_ptr<Task>> Epoll::poll() {
     int events_count;
     for (;;) {
         events_count=epoll_wait(epollfd_,events, MAX_EVENT, EPOLL_TIMEWAIT);
@@ -38,11 +38,11 @@ std::vector<Task *> Epoll::poll() {
             //continue;
         }
 
-        std::vector<Task *> req;
+        std::vector<std::shared_ptr<Task>> req;
         for(int i = 0; i< events_count; i++) {
             if(fd_to_task_[events[i].data.fd] == NULL)
                 continue;
-            Task *cur_req = fd_to_task_[events[i].data.fd];
+            std::shared_ptr<Task> cur_req = fd_to_task_[events[i].data.fd];
             //cur_req->rfd_ = events[i].data.fd;
             cur_req->revents = events[i].events;
             cur_req->events = 0;
@@ -55,7 +55,8 @@ std::vector<Task *> Epoll::poll() {
 }
 
 //删除的epoll关注事件，释放内存
-void Epoll::removeEpoll(Task *task) {
+void Epoll::removeEpoll(std::shared_ptr<Task> task) {
+    //在这里加锁会和timer对象互斥造成死锁,由于这里没有使线程不安全的操作，所以不加锁
     mutex_.lock();
     int fd = task->getFd();
     struct epoll_event event;
@@ -68,6 +69,7 @@ void Epoll::removeEpoll(Task *task) {
     //Task *task_tmp = fd_to_task_[fd];
     fd_to_task_[fd]->getHolder().reset();
     fd_to_task_[fd]->clearHolder();
+    fd_to_task_[fd].reset();
     fd_to_task_[fd] = NULL;
     //reset Epoll的引用
     fd_to_http_[fd].reset();
@@ -75,9 +77,14 @@ void Epoll::removeEpoll(Task *task) {
     mutex_.unlock();
 }
 
-void Epoll::handleTimer() {timer_manager_->handleCheckTimer();}
+void Epoll::handleTimer() {
+    //mutex_.lock();
+    timer_manager_->handleCheckTimer();
+    //mutex_.unlock();
+}
 
-void Epoll::addTimer(Task *task) {
+
+void Epoll::addTimer(std::shared_ptr<Task> task) {
     shared_ptr<HttpData> t = task->getHolder();
     if (t) {
         std::shared_ptr<Timer> timer = std::make_shared<Timer>(t, this);

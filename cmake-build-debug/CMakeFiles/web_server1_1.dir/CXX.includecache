@@ -32,18 +32,6 @@ Task.h
 Epoll.h
 /home/parallels/CLionProjects/web_server1.1/Epoll.h
 
-/home/parallels/CLionProjects/web_server1.1/HttpData.cpp
-sys/epoll.h
--
-HttpData.h
-/home/parallels/CLionProjects/web_server1.1/HttpData.h
-time.h
--
-cstring
--
-arpa/inet.h
--
-
 /home/parallels/CLionProjects/web_server1.1/HttpData.h
 UtilFun.h
 /home/parallels/CLionProjects/web_server1.1/UtilFun.h
@@ -87,6 +75,18 @@ functional
 -
 EventLoop.h
 /home/parallels/CLionProjects/web_server1.1/EventLoop.h
+
+/home/parallels/CLionProjects/web_server1.1/Timer.cpp
+Timer.h
+/home/parallels/CLionProjects/web_server1.1/Timer.h
+time.h
+-
+sys/time.h
+-
+mutex
+-
+WebLimit.h
+/home/parallels/CLionProjects/web_server1.1/WebLimit.h
 
 /home/parallels/CLionProjects/web_server1.1/Timer.h
 memory

@@ -20,12 +20,12 @@ void Server::start() {
     task_->setConnHandle(std::bind(&Server::newConnHandle, this));
 
     for(;;) {
-        std::vector<Task *> req;
+        std::vector<std::shared_ptr<Task> > req;
         req = task_->epoll_->poll();
         for(auto &it : req) {
-            mutex_.lock();
+            //mutex_.lock();
             it->eventHandle();
-            mutex_.unlock();
+            //mutex_.unlock();
         }
 
     }
@@ -91,11 +91,11 @@ void Server::newConnHandle() {
     }
 
     EventLoop *loop = threadPool_->getNext();
-    Task *task;
+    std::shared_ptr<Task> task;
 
     std::shared_ptr<HttpData> http;
     //原先在http里面创建 task，但是这样子在压测中会造成初始化还没成功就进行到下一语句的情况
-    task = new Task(loop, connfd);
+    task = std::make_shared<Task>(loop, connfd);
     http = std::make_shared<HttpData>(loop, connfd, task);
     task->setHolder(http);
     loop->epoll_->addEpoll(task);
