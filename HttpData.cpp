@@ -96,8 +96,7 @@ HttpData::HttpData(EventLoop *loop, int fd, Task *task) :
     task_->setWriteHandle(std::bind(&HttpData::writeHandle, this));
     task_->epoll_ = loop->epoll_;
     //loop->epoll_->removeEpoll(task);
-    loop->epoll_->addEpoll(task_);
-    loop->wakeup();
+    //loop->epoll_->addEpoll(task_);
 }
 
 HttpData::~HttpData() {
@@ -107,13 +106,15 @@ HttpData::~HttpData() {
     }
     if(fd_ != 0)
         close(fd_);
+    //delete task_;
     //timer_->setQuit();
-    timer_.reset();
+    //timer_.reset();
 }
 
 void HttpData::quit() {
     if(timer_.lock())
         timer_.lock()->setQuit();
+    loop_->epoll_->removeEpoll(task_);
     //close(fd_);
 }
 void HttpData::readHandle() {
@@ -137,29 +138,29 @@ void HttpData::readHandle() {
 
     if ((n = read(sockfd, receive_buff_, MAXLINE)) < 0) {
         if (errno == ECONNRESET) {
+            closed_ = true;
             bzero(&chiladdr, sizeof(chiladdr));
             socklen_t chillen = sizeof(chiladdr);
             getpeername(sockfd, (sockaddr *) &chiladdr, &chillen);
             //loop_->epoll_->removeEpoll(task_);
             //delete loop_;
-
             quit();
             close(fd_);
             fd_ = 0;
             if(DEBUG)
                 printf("close connect [%s : %d]\n",inet_ntop(AF_INET, &chiladdr.sin_addr.s_addr, ipbuf_tmp, sizeof(ipbuf_tmp)),ntohs(chiladdr.sin_port));
-            closed_ = true;
+
         } else
             ERR_MSG("read error");
     } else if (n == 0) {
+        closed_ = true;
         //loop_->epoll_->removeEpoll(task_);
         //delete loop_;
-        close(fd_);
         quit();
+        close(fd_);
         fd_ = 0;
         if(DEBUG)
             printf("close connect [%s : %d]\n",inet_ntop(AF_INET, &chiladdr.sin_addr.s_addr, ipbuf_tmp, sizeof(ipbuf_tmp)),ntohs(chiladdr.sin_port));
-        closed_ = true;
     } else {
         receive_buff_[n] = '\0';
         in_buff = string(receive_buff_);

@@ -25,10 +25,11 @@ public:
     void clearTime();
     bool isQuit() {return quit_;}
     size_t getTime() const { return time_; }
+    std::shared_ptr<HttpData> http_;
 private:
     bool quit_;
     size_t time_;
-    std::shared_ptr<HttpData> http_;
+
     Epoll *epoll_;
 };
 
@@ -43,11 +44,12 @@ class TimerManager {
 public:
     TimerManager(Epoll *epoll);
     ~TimerManager();
-    void addTimer(std::shared_ptr<HttpData> http);
+    void addTimer(std::shared_ptr<Timer> timer);
     void handleCheckTimer();
 
 private:
     std::priority_queue<std::shared_ptr<Timer>, std::deque<std::shared_ptr<Timer>>, TimerCmp> timerNodeQueue_;
     Epoll *epoll_;
+    MutexLock mutex_;
 };
 #endif //WEB_SERVER1_1_TIMER_H

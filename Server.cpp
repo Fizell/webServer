@@ -77,11 +77,8 @@ void Server::test3() {
 }
 void Server::newConnHandle() {
     //task_->epoll_->addEpoll(task_);
-    int fd_ = task_->epoll_->fd_;
+    int fd_ = task_->fd_;
     struct epoll_event ev;
-    ev.data.fd = fd_;
-    ev.events = EPOLLIN | EPOLLONESHOT;
-    epoll_ctl(task_->epoll_->epollfd_, EPOLL_CTL_MOD, fd_, &ev);
     int connfd;
     struct sockaddr_in chiladdr;
     bzero(&chiladdr, sizeof(chiladdr));
@@ -94,17 +91,23 @@ void Server::newConnHandle() {
     }
 
     EventLoop *loop = threadPool_->getNext();
+    Task *task;
+
+    std::shared_ptr<HttpData> http;
     //原先在http里面创建 task，但是这样子在压测中会造成初始化还没成功就进行到下一语句的情况
-    Task *task = new Task(loop, connfd);
-    std::shared_ptr<HttpData> http(new HttpData(loop, connfd, task));
-    loop->epoll_->addTimer(http);
-    //usleep(30);
+    task = new Task(loop, connfd);
+    http = std::make_shared<HttpData>(loop, connfd, task);
     task->setHolder(http);
-    http->getTime();
-    printf("New connect from %s port: %d\n",inet_ntop(AF_INET, &chiladdr.sin_addr.s_addr, ipbuf_tmp_, sizeof(ipbuf_tmp_)),ntohs(chiladdr.sin_port));
+    loop->epoll_->addEpoll(task);
 
+    //usleep(100);
+    //http->getTime();
+    //printf("New connect from %s port: %d\n",inet_ntop(AF_INET, &chiladdr.sin_addr.s_addr, ipbuf_tmp_, sizeof(ipbuf_tmp_)),ntohs(chiladdr.sin_port));
 
-
+    ev.data.fd = fd_;
+    ev.events = EPOLLIN | EPOLLONESHOT;
+    epoll_ctl(task_->epoll_->epollfd_, EPOLL_CTL_MOD, fd_, &ev);
+    loop->wakeup();
     /*
     ev.data.fd = connfd;
     ev.events = EPOLLIN;

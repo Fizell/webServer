@@ -41,7 +41,7 @@ public:
 
     void setHolder(std::shared_ptr<HttpData> holder) { holder_ = holder; }
     std::shared_ptr<HttpData> getHolder() { return holder_; }
-
+    void clearHolder();
 
 private:
     std::shared_ptr<HttpData> holder_;

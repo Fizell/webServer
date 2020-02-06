@@ -33,10 +33,16 @@ void Task::eventHandle() {
     rfd_ = 0;
     fflush(stdout);
     //关闭连接
+    /*
     if(getHolder())
         if(getHolder()->isClose()) {
             getHolder()->quit();
             epoll_->removeEpoll(this);
         }
+        */
 
+}
+
+void Task::clearHolder() {
+    holder_ = NULL;
 }

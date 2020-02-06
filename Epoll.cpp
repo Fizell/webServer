@@ -15,13 +15,16 @@ Epoll::~Epoll() {
 }
 //新连接增加epoll关注事件
 void Epoll::addEpoll(Task *task) {
-    fd_ = task->getFd();
+    mutex_.lock();
+    int fd = task->getFd();
     struct epoll_event ev;
-    ev.data.fd = fd_;
+    ev.data.fd = fd;
     ev.events = EPOLLIN | EPOLLONESHOT;
-    fd_to_task_[fd_] = task;
-    fd_to_http_[fd_] = task->getHolder();
-    epoll_ctl(epollfd_, EPOLL_CTL_ADD, fd_, &ev);
+    fd_to_task_[fd] = task;
+    fd_to_http_[fd] = task->getHolder();
+    addTimer(task);
+    epoll_ctl(epollfd_, EPOLL_CTL_ADD, fd, &ev);
+    mutex_.unlock();
 }
 //等待事件,获取任务
 std::vector<Task *> Epoll::poll() {
@@ -53,6 +56,7 @@ std::vector<Task *> Epoll::poll() {
 
 //删除的epoll关注事件，释放内存
 void Epoll::removeEpoll(Task *task) {
+    mutex_.lock();
     int fd = task->getFd();
     struct epoll_event event;
     event.data.fd = fd;
@@ -61,14 +65,25 @@ void Epoll::removeEpoll(Task *task) {
         //
     }
     //reset Task的引用
+    //Task *task_tmp = fd_to_task_[fd];
     fd_to_task_[fd]->getHolder().reset();
-    delete fd_to_task_[fd];
+    fd_to_task_[fd]->clearHolder();
     fd_to_task_[fd] = NULL;
     //reset Epoll的引用
     fd_to_http_[fd].reset();
     fd_to_http_[fd] = NULL;
+    mutex_.unlock();
 }
 
 void Epoll::handleTimer() {timer_manager_->handleCheckTimer();}
 
-void Epoll::addTimer(std::shared_ptr<HttpData> http) {timer_manager_->addTimer(http);}
+void Epoll::addTimer(Task *task) {
+    shared_ptr<HttpData> t = task->getHolder();
+    if (t) {
+        std::shared_ptr<Timer> timer = std::make_shared<Timer>(t, this);
+        timer_manager_->addTimer(timer);
+    }
+    else {
+        printf("add timer falure\n");
+    }
+}

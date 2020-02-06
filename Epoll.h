@@ -25,7 +25,7 @@ public:
     void addEpoll(Task *task);
     void removeEpoll(Task *task);
     void handleTimer();
-    void addTimer(std::shared_ptr<HttpData> http);
+    void addTimer(Task *task);
     int fd_;
     int epollfd_;
     struct epoll_event events[MAX_EVENT];

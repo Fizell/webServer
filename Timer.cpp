@@ -4,6 +4,7 @@
 #include "Timer.h"
 #include <time.h>
 #include <sys/time.h>
+#include <mutex>
 #include "WebLimit.h"
 
 Timer::Timer(std::shared_ptr<HttpData> http, Epoll *epoll) : http_(http), quit_(false), time_(0), epoll_(epoll) {
@@ -22,7 +23,7 @@ Timer::~Timer() {
 
 void Timer::setQuit() {
     quit_ = true;
-    http_.reset();
+    //http_.reset();
 }
 void Timer::updateTime() {
     struct timeval now;
@@ -37,8 +38,8 @@ bool Timer::checkTime() {
     if (temp < time_)
         return true;
     else {
-        if(quit_ != true)
-            epoll_->removeEpoll(http_->getTask());
+        //if(http_ != NULL)
+            //epoll_->removeEpoll(http_->getTask());
         http_.reset();
         quit_ = true;
         return false;
@@ -47,20 +48,20 @@ bool Timer::checkTime() {
 }
 
 
-TimerManager::TimerManager(Epoll *epoll) : epoll_(epoll){}
+TimerManager::TimerManager(Epoll *epoll) : epoll_(epoll), mutex_() {}
 TimerManager::~TimerManager() {}
 
-void TimerManager::addTimer(std::shared_ptr<HttpData> http) {
-    std::shared_ptr<Timer> new_node(new Timer(http, epoll_));
-    http->linkTimer(new_node);
-    timerNodeQueue_.push(new_node);
+void TimerManager::addTimer(std::shared_ptr<Timer> timer) {
+    //std::shared_ptr<Timer> new_node(new Timer(http, epoll_));
+    //http->linkTimer(new_node);
+    timerNodeQueue_.push(timer);
 }
 
 void TimerManager::handleCheckTimer() {
-    // MutexLockGuard locker(lock);
+    //MutexLockGuard locker(mutex_);
     while (!timerNodeQueue_.empty()) {
         std::shared_ptr<Timer> ptimer_now = timerNodeQueue_.top();
-        if (ptimer_now->isQuit())
+        if (ptimer_now->http_ == NULL)
             timerNodeQueue_.pop();
         else if (ptimer_now->checkTime() == false)
             timerNodeQueue_.pop();
