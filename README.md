@@ -44,5 +44,3 @@ make
 - 使用对象池优化掉新连接时HttpData对象和Task对象的构建消耗
 - 使用log记录操作日志
 - 构造应用层缓存区
-
-参考大神代码：<https://github.com/linyacool/WebServer>
